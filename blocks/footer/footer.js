@@ -5,7 +5,7 @@ import { decorateIcons } from '../../scripts/aem.js';
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  const resp = await fetch('/content/footer.plain.html');
+  const resp = await fetch('/footer.plain.html');
   if (!resp.ok) return;
 
   const html = await resp.text();

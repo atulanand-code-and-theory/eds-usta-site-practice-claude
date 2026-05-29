@@ -13,7 +13,7 @@ function openMenu() {
 }
 
 export default async function decorate(block) {
-  const resp = await fetch('/content/nav.plain.html');
+  const resp = await fetch('/nav.plain.html');
   if (!resp.ok) return;
 
   const html = await resp.text();
