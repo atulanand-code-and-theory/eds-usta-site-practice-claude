@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 32px;
+  gap: 32px 40px;
   padding: 24px 0;
 }
 
@@ -18,14 +18,21 @@
 }
 
 .logo-grid .logo-grid-item img {
-  max-height: 48px;
+  max-height: 56px;
   width: auto;
-  filter: grayscale(100%);
-  opacity: 0.8;
-  transition: filter 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .logo-grid .logo-grid-item img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
+  transform: scale(1.05);
+}
+
+@media (width >= 900px) {
+  .logo-grid {
+    gap: 40px 56px;
+  }
+
+  .logo-grid .logo-grid-item img {
+    max-height: 64px;
+  }
 }

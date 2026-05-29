@@ -1,20 +1,21 @@
 .section-title {
   display: flex;
   justify-content: center;
-  padding: 24px 0;
+  padding: 16px 0 24px;
 }
 
 .section-title .section-title-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 16px;
+  width: 100%;
 }
 
-.section-title .section-title-wrapper::before {
+.section-title .section-title-wrapper::before,
+.section-title .section-title-wrapper::after {
   content: '';
-  display: block;
-  width: 100px;
+  flex: 1;
   height: 2px;
   background-color: #ccc;
 }
@@ -22,17 +23,35 @@
 .section-title .section-title-icon {
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .section-title .section-title-icon img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
 .section-title .section-title-text {
-  font-size: 1.25rem;
-  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.section-title .section-title-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
+  margin: 0;
+  white-space: nowrap;
+}
+
+@media (width >= 900px) {
+  .section-title .section-title-icon img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .section-title .section-title-text h2 {
+    font-size: 1.75rem;
+  }
 }

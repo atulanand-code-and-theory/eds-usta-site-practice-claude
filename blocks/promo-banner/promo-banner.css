@@ -1,7 +1,13 @@
+.promo-banner-wrapper {
+  background-color: #1a1a1a;
+}
+
 .promo-banner {
-  background-color: #333;
+  background-color: #1a1a1a;
   color: #fff;
-  padding: 24px 48px;
+  padding: 32px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .promo-banner > div {
@@ -12,6 +18,10 @@
 }
 
 @media (width >= 600px) {
+  .promo-banner {
+    padding: 32px 48px;
+  }
+
   .promo-banner > div {
     flex-direction: row;
     justify-content: space-between;
@@ -20,24 +30,44 @@
 }
 
 .promo-banner .promo-banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.promo-banner .promo-banner-content p:first-child {
+  font-size: 0.75rem;
   text-transform: uppercase;
-  font-weight: bold;
-  font-size: 1.125rem;
+  letter-spacing: 1.5px;
+  color: #999;
+  margin: 0;
+}
+
+.promo-banner .promo-banner-content p:last-child {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .promo-banner .promo-banner-action a {
   display: inline-block;
-  padding: 10px 24px;
-  border: 2px solid #009a44;
-  color: #fff;
-  background-color: transparent;
+  padding: 12px 28px;
+  background-color: #9acd00;
+  color: #000;
+  border: none;
   border-radius: 4px;
   text-decoration: none;
   text-transform: uppercase;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+  transition: background-color 0.2s ease;
 }
 
 .promo-banner .promo-banner-action a:hover {
-  background-color: #009a44;
+  background-color: #8ab800;
+  text-decoration: none;
 }
