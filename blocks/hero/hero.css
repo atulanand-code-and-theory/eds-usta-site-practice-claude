@@ -1,0 +1,100 @@
+/* full-bleed hero: break out of the section content column */
+main .section .hero-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  min-height: 320px;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* background image layer */
+.hero .hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero .hero-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* dark scrim for legibility over the image */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 75%) 0%,
+    rgb(0 0 0 / 45%) 55%,
+    rgb(0 0 0 / 15%) 100%
+  );
+}
+
+/* overlaid content */
+.hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 12px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  color: #fff;
+}
+
+.hero .hero-content h1,
+.hero .hero-content h2,
+.hero .hero-content h3,
+.hero .hero-content p {
+  margin: 0;
+  color: #fff;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 45%);
+}
+
+.hero .hero-content .button-wrapper {
+  margin: 8px 0 0;
+}
+
+@media (width >= 600px) {
+  .hero {
+    min-height: 420px;
+  }
+
+  .hero .hero-content {
+    padding: 48px 32px;
+  }
+}
+
+@media (width >= 900px) {
+  .hero {
+    min-height: 520px;
+  }
+
+  .hero .hero-content {
+    padding: 64px 32px;
+  }
+}
+
+@media (width >= 1200px) {
+  .hero {
+    min-height: 600px;
+  }
+}
