@@ -47,6 +47,7 @@ body.appear {
 /* header placeholder */
 header {
   height: var(--nav-height);
+  background-color: #f7f7f7;
 }
 
 header .header,
