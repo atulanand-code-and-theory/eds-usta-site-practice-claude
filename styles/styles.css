@@ -1,40 +1,20 @@
+@import url('brand.css');
+
 /*
  * USTA Global Styles
  * Edge Delivery Services
  */
 
-:root {
-  /* brand colors */
-  --color-brand-primary: #009a44;
-  --color-brand-secondary: #9acd00;
-  --color-brand-dark: #000;
-  --color-text: #333;
-  --color-text-light: #666;
-  --color-background: #fff;
-  --color-background-dark: #1a1a1a;
-  --color-background-gray: #f5f5f5;
-  --color-border: #e0e0e0;
-
-  /* fonts */
-  --font-family-body: roboto, sans-serif;
-  --font-family-heading: "Roboto Condensed", sans-serif;
-  --font-size-body: 16px;
-
-  /* layout */
-  --max-width: 1200px;
-  --nav-height: 80px;
-}
-
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
+  font-family: graphik-xxcond-bold-fallback;
+  size-adjust: 75%;
+  src: local('Arial Narrow Bold'), local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
+  font-family: graphik-regular-fallback;
+  size-adjust: 100%;
   src: local('Arial');
 }
 
@@ -91,21 +71,25 @@ h6 {
   font-family: var(--font-family-heading);
   font-weight: 700;
   color: #000;
-  line-height: 1.15;
+  line-height: 1.05;
+  text-transform: uppercase;
   scroll-margin: 40px;
 }
 
-h1 { font-size: 48px; }
-h2 { font-size: 36px; }
-h3 { font-size: 28px; }
-h4 { font-size: 22px; }
-h5 { font-size: 20px; }
-h6 { font-size: 18px; }
+h1 { font-size: 36px; }
+h2 { font-size: 28px; }
+h3 { font-size: 24px; }
+h4 { font-size: 20px; }
+h5 { font-size: 18px; }
+h6 { font-size: 16px; }
 
 @media (width >= 900px) {
-  h1 { font-size: 56px; }
-  h2 { font-size: 42px; }
-  h3 { font-size: 32px; }
+  h1 { font-size: var(--heading-size-xxl); }
+  h2 { font-size: var(--heading-size-xl); }
+  h3 { font-size: var(--heading-size-l); }
+  h4 { font-size: var(--heading-size-m); }
+  h5 { font-size: var(--heading-size-s); }
+  h6 { font-size: var(--heading-size-xs); }
 }
 
 /* paragraphs and text elements */
@@ -121,12 +105,13 @@ blockquote {
 
 /* links */
 a:any-link {
-  color: var(--color-brand-primary);
+  color: var(--color-link);
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
 a:hover {
+  color: var(--color-link-hover);
   text-decoration: underline;
 }
 
@@ -137,7 +122,7 @@ img {
   display: block;
 }
 
-/* main content - full width, sections handle their own max-width */
+/* main content */
 main {
   margin: 0;
   padding: 0;
@@ -156,7 +141,7 @@ button {
   font: inherit;
 }
 
-/* buttons */
+/* buttons - USTA pill style */
 p.button-wrapper {
   margin: 12px 0;
 }
@@ -170,12 +155,12 @@ button.button {
   max-width: 100%;
   margin: 0;
   border: 2px solid transparent;
-  border-radius: 4px;
-  padding: 14px 32px;
-  font-family: var(--font-family-heading);
-  font-size: 0.875rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  border-radius: var(--button-border-radius);
+  padding: var(--button-padding);
+  font-family: var(--font-family-button);
+  font-size: var(--button-font-size);
+  font-weight: 600;
+  letter-spacing: var(--button-letter-spacing);
   line-height: 1.25;
   text-decoration: none;
   text-transform: uppercase;
@@ -183,7 +168,7 @@ button.button {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
 }
 
 a.button[aria-disabled="true"],
@@ -197,32 +182,52 @@ a.button.primary,
 button.button.primary {
   border-color: var(--color-brand-primary);
   background-color: var(--color-brand-primary);
-  color: #fff;
+  color: var(--color-brand-primary-text);
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  background-color: #007a36;
-  border-color: #007a36;
-  color: #fff;
+  background-color: #b8e600;
+  border-color: #b8e600;
+  color: #000;
   text-decoration: none;
+  transform: scale(1.02);
 }
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--color-brand-primary);
-  background-color: transparent;
-  color: var(--color-brand-primary);
+  border-color: #fff;
+  background-color: var(--color-brand-secondary);
+  color: var(--color-brand-secondary-text);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  background-color: var(--color-brand-primary);
+  background-color: #222;
+  border-color: #fff;
   color: #fff;
+  text-decoration: none;
+  transform: scale(1.02);
+}
+
+/* outline/tertiary button */
+a.button.tertiary,
+button.button.tertiary {
+  border-color: var(--color-brand-secondary);
+  background-color: transparent;
+  color: var(--color-brand-secondary);
+}
+
+a.button.tertiary:hover,
+a.button.tertiary:focus-visible,
+button.button.tertiary:hover,
+button.button.tertiary:focus-visible {
+  background-color: var(--color-brand-secondary);
+  color: var(--color-brand-secondary-text);
   text-decoration: none;
 }
 
@@ -241,7 +246,7 @@ button.button.secondary:focus-visible {
 /* sections */
 main > .section {
   margin-bottom: 0;
-  padding: 48px 24px;
+  padding: var(--section-padding) 24px;
 }
 
 main > .section > div {
@@ -269,7 +274,7 @@ main > .section:first-of-type {
   }
 }
 
-/* section metadata */
+/* section metadata - dark */
 main .section[data-background="dark"] {
   background-color: var(--color-background-dark);
   color: #fff;
@@ -285,11 +290,46 @@ main .section[data-background="dark"] h6 {
 }
 
 main .section[data-background="dark"] a:any-link {
-  color: var(--color-brand-secondary);
+  color: var(--color-brand-primary);
 }
 
+/* section metadata - gray */
 main .section[data-background="gray"] {
   background-color: var(--color-background-gray);
+}
+
+/* section metadata - dark green */
+main .section[data-background="dark-green"] {
+  background-color: var(--color-brand-dark-green);
+  color: #fff;
+}
+
+main .section[data-background="dark-green"] h1,
+main .section[data-background="dark-green"] h2,
+main .section[data-background="dark-green"] h3,
+main .section[data-background="dark-green"] h4,
+main .section[data-background="dark-green"] h5,
+main .section[data-background="dark-green"] h6 {
+  color: #fff;
+}
+
+main .section[data-background="dark-green"] a:any-link {
+  color: var(--color-brand-primary);
+}
+
+/* section metadata - blue */
+main .section[data-background="blue"] {
+  background-color: var(--color-brand-accent);
+  color: #fff;
+}
+
+main .section[data-background="blue"] h1,
+main .section[data-background="blue"] h2,
+main .section[data-background="blue"] h3,
+main .section[data-background="blue"] h4,
+main .section[data-background="blue"] h5,
+main .section[data-background="blue"] h6 {
+  color: #fff;
 }
 
 /* membership section styling */
@@ -299,21 +339,21 @@ main .section[data-background="gray"] {
 
 .section.section-title-container .logo-grid-wrapper + .default-content-wrapper a {
   display: inline-block;
-  padding: 14px 36px;
-  background-color: #009a44;
-  color: #fff;
-  border-radius: 4px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 0.875rem;
+  padding: var(--button-padding);
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
+  border-radius: var(--button-border-radius);
+  font-family: var(--font-family-button);
+  font-weight: 600;
+  font-size: var(--button-font-size);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: var(--button-letter-spacing);
   text-decoration: none;
   transition: background-color 0.2s ease;
 }
 
 .section.section-title-container .logo-grid-wrapper + .default-content-wrapper a:hover {
-  background-color: #007a36;
+  background-color: #b8e600;
   text-decoration: none;
 }
 

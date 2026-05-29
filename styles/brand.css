@@ -1,0 +1,45 @@
+:root {
+  /* USTA Brand Colors */
+  --color-brand-primary: #cfff05;
+  --color-brand-primary-text: #000;
+  --color-brand-secondary: #000;
+  --color-brand-secondary-text: #fff;
+  --color-brand-accent: #0373f3;
+  --color-brand-dark: #000;
+  --color-brand-dark-green: #19462e;
+  --color-brand-light-green: #92bfb7;
+  --color-brand-light-blue: #54cbf9;
+  --color-text: #333;
+  --color-text-light: #6c7689;
+  --color-background: #fff;
+  --color-background-dark: #000;
+  --color-background-gray: #f8f8f8;
+  --color-border: #e0e0e0;
+  --color-link: #0357b8;
+  --color-link-hover: #024a9e;
+
+  /* USTA Typography */
+  --font-family-body: "Graphik Regular", tahoma, sans-serif;
+  --font-family-heading: "Graphik XXCond Bold", tahoma, sans-serif;
+  --font-family-button: "Graphik Semibold", tahoma, sans-serif;
+  --font-size-body: 16px;
+
+  /* Heading sizes - desktop */
+  --heading-size-xxl: 90px;
+  --heading-size-xl: 35px;
+  --heading-size-l: 56px;
+  --heading-size-m: 28px;
+  --heading-size-s: 22px;
+  --heading-size-xs: 18px;
+
+  /* Layout */
+  --max-width: 1200px;
+  --nav-height: 85px;
+  --section-padding: 48px;
+
+  /* Button tokens */
+  --button-border-radius: 9999px;
+  --button-padding: 14px 28px;
+  --button-font-size: 18px;
+  --button-letter-spacing: 1px;
+}

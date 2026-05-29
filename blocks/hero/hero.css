@@ -1,12 +1,12 @@
 .hero-wrapper {
-  background-color: #000;
+  background-color: var(--color-background-dark);
 }
 
 .hero {
-  background-color: #000;
+  background-color: var(--color-background-dark);
   width: 100%;
   overflow: hidden;
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 
@@ -30,7 +30,7 @@
   display: block;
   width: 80px;
   height: 4px;
-  background-color: #9acd00;
+  background-color: var(--color-brand-primary);
   position: absolute;
   bottom: 48px;
   left: 24px;
@@ -39,7 +39,7 @@
 .hero .hero-content h1,
 .hero .hero-content h2,
 .hero .hero-content h3 {
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: var(--font-family-heading);
   font-weight: 700;
   color: #fff;
   margin: 0 0 24px;
@@ -51,6 +51,7 @@
 .hero .hero-content p {
   color: #fff;
   margin: 0 0 16px;
+  font-family: var(--font-family-body);
 }
 
 .hero .hero-content img {
@@ -60,23 +61,24 @@
 }
 
 .hero .hero-content a.button {
-  background-color: #9acd00;
-  color: #000;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  padding: 14px 36px;
-  border-radius: 4px;
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
+  font-family: var(--font-family-button);
+  font-weight: 600;
+  padding: var(--button-padding);
+  border-radius: var(--button-border-radius);
   text-decoration: none;
   display: inline-block;
-  font-size: 0.875rem;
-  letter-spacing: 0.5px;
+  font-size: var(--button-font-size);
+  letter-spacing: var(--button-letter-spacing);
   text-transform: uppercase;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.1s ease;
   margin-top: 8px;
 }
 
 .hero .hero-content a.button:hover {
-  background-color: #8ab800;
+  background-color: #b8e600;
+  transform: scale(1.02);
 }
 
 .hero .hero-image {

@@ -66,14 +66,15 @@
 
 .cards .cards-card-body p {
   margin: 0 0 12px;
-  color: #555;
+  color: var(--color-text-light);
   line-height: 1.6;
   font-size: 0.9375rem;
 }
 
 .cards .cards-card-body a {
-  color: #009a44;
+  color: var(--color-link);
   text-decoration: none;
+  font-family: var(--font-family-button);
   font-weight: 600;
   font-size: 0.875rem;
   text-transform: uppercase;
@@ -83,6 +84,6 @@
 }
 
 .cards .cards-card-body a:hover {
-  color: #007a36;
+  color: var(--color-link-hover);
   text-decoration: underline;
 }

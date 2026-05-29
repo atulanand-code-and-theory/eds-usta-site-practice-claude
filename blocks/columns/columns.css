@@ -39,24 +39,25 @@
 }
 
 .columns .columns-col a.button {
-  background-color: #9acd00;
+  background-color: var(--color-brand-primary);
   border: none;
-  color: #000;
-  padding: 14px 32px;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 0.875rem;
+  color: var(--color-brand-primary-text);
+  padding: var(--button-padding);
+  font-family: var(--font-family-button);
+  font-weight: 600;
+  font-size: var(--button-font-size);
   text-decoration: none;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: var(--button-letter-spacing);
   display: inline-block;
-  border-radius: 4px;
-  transition: background-color 0.2s ease;
+  border-radius: var(--button-border-radius);
+  transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .columns .columns-col a.button:hover {
-  background-color: #8ab800;
+  background-color: #b8e600;
   text-decoration: none;
+  transform: scale(1.02);
 }
 
 .columns .columns-img-col {
@@ -87,7 +88,7 @@
 
 /* Dark variant — first columns instance (50 Years of Wheelchair Tennis) */
 main > .section:nth-of-type(2) .columns {
-  background-color: #2d2d2d;
+  background-color: var(--color-brand-dark-green);
   color: #fff;
   border-radius: 0;
 }
@@ -97,8 +98,8 @@ main > .section:nth-of-type(2) .columns .columns-col h2 {
 }
 
 main > .section:nth-of-type(2) .columns .columns-col a.button {
-  background-color: #9acd00;
-  color: #000;
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
 }
 
 main > .section:nth-of-type(2) .columns .columns-img-col {
@@ -106,7 +107,7 @@ main > .section:nth-of-type(2) .columns .columns-img-col {
   align-items: center;
   justify-content: center;
   padding: 32px;
-  background-color: #363636;
+  background-color: var(--color-brand-dark-green);
 }
 
 main > .section:nth-of-type(2) .columns .columns-img-col img {
@@ -117,7 +118,7 @@ main > .section:nth-of-type(2) .columns .columns-img-col img {
 
 /* National Tennis Month variant — third section */
 main > .section:nth-of-type(3) .columns {
-  background-color: #9acd00;
+  background-color: var(--color-brand-primary);
   color: #000;
 }
 
@@ -141,8 +142,8 @@ main > .section:nth-of-type(3) .columns .columns-col a.button:hover {
 
 /* Local Park variant — fourth section */
 main > .section:nth-of-type(4) .columns {
-  background-color: #f0f7e6;
-  border-radius: 8px;
+  background-color: var(--color-brand-light-green);
+  border-radius: 12px;
   overflow: hidden;
 }
 
@@ -156,12 +157,12 @@ main > .section:nth-of-type(4) .columns .columns-col img:not([alt="Tennis at loc
 }
 
 main > .section:nth-of-type(4) .columns .columns-col a.button {
-  background-color: #009a44;
-  color: #fff;
+  background-color: var(--color-brand-secondary);
+  color: var(--color-brand-secondary-text);
 }
 
 main > .section:nth-of-type(4) .columns .columns-col a.button:hover {
-  background-color: #007a36;
+  background-color: #222;
 }
 
 /* stylelint-enable no-descending-specificity */

@@ -26,14 +26,14 @@ a.button:focus-visible {
 
 /* Footer spacing */
 footer {
-  margin-top: 64px;
-  border-top: 1px solid var(--color-border);
+  margin-top: 0;
+  border-top: none;
 }
 
 footer .footer {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 40px 16px;
+  max-width: none;
+  margin: 0;
+  padding: 0;
 }
 
 /* Print media query */
