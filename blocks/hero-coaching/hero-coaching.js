@@ -4,17 +4,17 @@ export default function decorate(block) {
   const imageRow = rows[1];
 
   const textCol = document.createElement('div');
-  textCol.className = 'hero-text';
+  textCol.className = 'hero-coaching-text';
 
   if (textRow) {
     const cells = [...textRow.children];
     if (cells[0]) {
-      cells[0].className = 'hero-logo';
+      cells[0].className = 'hero-coaching-logo';
       textCol.append(cells[0]);
     }
     if (cells[1]) {
-      cells[1].className = 'hero-heading';
-      const h1 = cells[1].querySelector('h1, h2, h3');
+      cells[1].className = 'hero-coaching-heading';
+      const h1 = cells[1].querySelector('h1');
       if (h1) {
         const text = h1.textContent;
         const firstSpace = text.indexOf(' ');
@@ -27,13 +27,13 @@ export default function decorate(block) {
       textCol.append(cells[1]);
     }
     if (cells[2]) {
-      cells[2].className = 'hero-cta';
+      cells[2].className = 'hero-coaching-cta';
       textCol.append(cells[2]);
     }
   }
 
   const imageCol = document.createElement('div');
-  imageCol.className = 'hero-image';
+  imageCol.className = 'hero-coaching-image';
 
   if (imageRow) {
     const pic = imageRow.querySelector('picture');

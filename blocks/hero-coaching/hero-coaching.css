@@ -1,40 +1,47 @@
-main .section .hero-wrapper {
+.hero-coaching-container {
+  margin-top: 0;
+}
+
+.hero-coaching-container > .default-content-wrapper {
+  display: none;
+}
+
+.hero-coaching-container .hero-coaching-wrapper {
   max-width: unset;
   padding: 0;
 }
 
-.hero {
+.hero-coaching {
   background-color: rgb(0 0 0);
   display: grid;
   grid-template-columns: 1fr;
   min-height: 400px;
 }
 
-.hero .hero-text {
+.hero-coaching .hero-coaching-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
   padding: 32px 24px;
+  text-align: left;
 }
 
-.hero .hero-logo {
+.hero-coaching .hero-coaching-logo {
   margin-bottom: 16px;
 }
 
-.hero .hero-logo picture {
+.hero-coaching .hero-coaching-logo picture {
   display: block;
 }
 
-.hero .hero-logo img {
+.hero-coaching .hero-coaching-logo img {
   width: 174px;
   height: auto;
   object-fit: contain;
 }
 
-.hero .hero-heading h1,
-.hero .hero-heading h2,
-.hero .hero-heading h3 {
+.hero-coaching .hero-coaching-heading h1 {
   font-family: var(--heading-font-family);
   font-size: 48px;
   font-weight: 700;
@@ -44,21 +51,19 @@ main .section .hero-wrapper {
   text-transform: uppercase;
 }
 
-.hero .hero-heading h1 .accent,
-.hero .hero-heading h2 .accent,
-.hero .hero-heading h3 .accent {
+.hero-coaching .hero-coaching-heading h1 .accent {
   color: rgb(207 255 5);
 }
 
-.hero .hero-cta {
+.hero-coaching .hero-coaching-cta {
   margin-top: 32px;
 }
 
-.hero .hero-cta p {
+.hero-coaching .hero-coaching-cta p {
   margin: 0;
 }
 
-.hero .hero-cta a {
+.hero-coaching .hero-coaching-cta a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -76,51 +81,49 @@ main .section .hero-wrapper {
   min-width: 200px;
 }
 
-.hero .hero-cta a:hover {
+.hero-coaching .hero-coaching-cta a:hover {
   background-color: rgb(186 230 4);
   color: rgb(0 0 0);
   text-decoration: none;
 }
 
-.hero .hero-image {
+.hero-coaching .hero-coaching-image {
   display: none;
 }
 
 @media (width >= 900px) {
-  .hero {
+  .hero-coaching {
     grid-template-columns: 1fr 1fr;
     min-height: 600px;
   }
 
-  .hero .hero-text {
+  .hero-coaching .hero-coaching-text {
     padding: 64px 48px;
   }
 
-  .hero .hero-heading h1,
-  .hero .hero-heading h2,
-  .hero .hero-heading h3 {
+  .hero-coaching .hero-coaching-heading h1 {
     font-size: 90px;
     line-height: 99px;
   }
 
-  .hero .hero-cta a {
+  .hero-coaching .hero-coaching-cta a {
     min-width: 280px;
     padding: 14px 40px;
   }
 
-  .hero .hero-image {
+  .hero-coaching .hero-coaching-image {
     display: block;
     position: relative;
     overflow: hidden;
   }
 
-  .hero .hero-image picture {
+  .hero-coaching .hero-coaching-image picture {
     display: block;
     width: 100%;
     height: 100%;
   }
 
-  .hero .hero-image img {
+  .hero-coaching .hero-coaching-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
