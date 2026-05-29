@@ -99,8 +99,8 @@ main .section .hero-wrapper {
   .hero .hero-heading h1,
   .hero .hero-heading h2,
   .hero .hero-heading h3 {
-    font-size: 90px;
-    line-height: 99px;
+    font-size: 72px;
+    line-height: 80px;
   }
 
   .hero .hero-cta a {
