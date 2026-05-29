@@ -1,0 +1,353 @@
+/* Header Block Styles - USTA */
+
+/* Sticky header */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  height: var(--nav-height, 80px);
+  background-color: #000;
+}
+
+.header .nav {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: var(--max-width, 1200px);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* Hamburger button */
+.header .nav-hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  order: -1;
+  flex-shrink: 0;
+}
+
+.header .nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hamburger animation when open */
+body.nav-open .header .nav-hamburger span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+body.nav-open .header .nav-hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+body.nav-open .header .nav-hamburger span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Brand / Logo */
+.header .nav-brand {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: auto;
+}
+
+.header .nav-brand a {
+  display: flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.header .nav-brand img {
+  max-height: 40px;
+  width: auto;
+}
+
+/* Nav tools (search, user, cart) */
+.header .nav-tools {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.header .nav-tools a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.header .nav-tools .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.header .nav-tools .icon svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.header .nav-tools img {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1);
+}
+
+/* Nav sections (main links) */
+.header .nav-sections {
+  display: none;
+  flex: 1;
+  justify-content: center;
+}
+
+.header .nav-sections > ul {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.header .nav-sections > ul > li {
+  position: relative;
+}
+
+.header .nav-sections > ul > li > a {
+  display: block;
+  padding: 8px 12px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.header .nav-sections > ul > li > a:hover,
+.header .nav-sections > ul > li > a:focus {
+  border-bottom-color: #9acd00;
+}
+
+/* Dropdown arrow */
+.header .nav-sections > ul > li.nav-drop > a::after {
+  content: '';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 6px;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+}
+
+.header .nav-sections > ul > li.nav-drop-open > a::after {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menus */
+.header .nav-sections .nav-drop ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  flex-direction: column;
+  min-width: 220px;
+  padding: 8px 0;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 30%);
+  z-index: 10;
+}
+
+.header .nav-sections .nav-drop-open ul {
+  display: flex;
+}
+
+.header .nav-sections .nav-drop > ul > li > a {
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: none;
+  white-space: nowrap;
+  border-bottom: none;
+  transition: background-color 0.2s ease;
+}
+
+.header .nav-sections .nav-drop > ul > li > a:hover,
+.header .nav-sections .nav-drop > ul > li > a:focus {
+  background-color: #2a2a2a;
+}
+
+/*
+ * Mobile nav overlay and dropdown overrides.
+ * These selectors intentionally target different DOM elements than the dropdown
+ * selectors above (top-level nav links vs nested dropdown links) but stylelint
+ * cannot reason about DOM structure, creating a circular specificity conflict.
+ */
+/* stylelint-disable no-descending-specificity */
+body.nav-open {
+  overflow: hidden;
+}
+
+body.nav-open .header {
+  height: 100vh;
+}
+
+body.nav-open .header .nav {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  height: 100%;
+  overflow-y: auto;
+}
+
+body.nav-open .header .nav-sections {
+  display: flex;
+  flex-basis: 100%;
+  order: 3;
+  margin-top: 32px;
+}
+
+body.nav-open .header .nav-sections > ul {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+}
+
+body.nav-open .header .nav-sections > ul > li {
+  width: 100%;
+  border-bottom: 1px solid #222;
+}
+
+body.nav-open .header .nav-sections > ul > li > a {
+  padding: 16px 0;
+  font-size: 18px;
+  border-bottom: none;
+}
+
+body.nav-open .header .nav-sections > ul > li > a:hover {
+  color: #9acd00;
+  border-bottom: none;
+}
+
+body.nav-open .header .nav-tools {
+  order: 2;
+}
+
+/* Mobile dropdown overrides */
+body.nav-open .header .nav-sections .nav-drop ul {
+  position: static;
+  min-width: unset;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0 0 8px 16px;
+}
+
+body.nav-open .header .nav-sections .nav-drop > ul > li > a {
+  padding: 12px 0;
+  font-size: 16px;
+}
+
+body.nav-open .header .nav-sections .nav-drop > ul > li > a:hover {
+  background-color: transparent;
+}
+/* stylelint-enable no-descending-specificity */
+
+/* Desktop styles */
+@media (width >= 900px) {
+  .header .nav {
+    padding: 0 24px;
+  }
+
+  .header .nav-hamburger {
+    display: none;
+  }
+
+  .header .nav-sections {
+    display: flex;
+  }
+
+  .header .nav-brand {
+    margin-right: 24px;
+  }
+
+  .header .nav-tools {
+    margin-left: 24px;
+  }
+
+  /* Override mobile open styles on desktop */
+  body.nav-open .header {
+    height: var(--nav-height, 80px);
+  }
+
+  body.nav-open .header .nav {
+    flex-wrap: nowrap;
+    align-items: center;
+    overflow-y: visible;
+  }
+
+  body.nav-open .header .nav-sections > ul {
+    flex-direction: row;
+  }
+
+  body.nav-open .header .nav-sections > ul > li {
+    width: auto;
+    border-bottom: none;
+  }
+
+  body.nav-open .header .nav-sections > ul > li > a {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-bottom: 3px solid transparent;
+  }
+
+  body.nav-open .header .nav-sections > ul > li > a:hover {
+    color: #fff;
+    border-bottom-color: #9acd00;
+  }
+}
+
+/* Large desktop */
+@media (width >= 1200px) {
+  .header .nav {
+    padding: 0 32px;
+  }
+
+  .header .nav-sections > ul {
+    gap: 12px;
+  }
+
+  .header .nav-sections > ul > li > a {
+    padding: 8px 16px;
+  }
+}

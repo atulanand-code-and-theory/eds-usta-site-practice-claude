@@ -1,0 +1,149 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 48px 24px;
+}
+
+.footer .footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Links base styles */
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #009a44;
+}
+
+/* Footer Brand */
+.footer .footer-brand {
+  margin-bottom: 32px;
+}
+
+.footer .footer-brand img {
+  max-height: 48px;
+  width: auto;
+}
+
+.footer .footer-brand p {
+  color: #999;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+/* Footer Navigation */
+.footer .footer-nav {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.footer .footer-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-nav li {
+  margin-bottom: 8px;
+}
+
+.footer .footer-nav h2,
+.footer .footer-nav h3,
+.footer .footer-nav h4 {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+/* Footer section links - nav, social, legal */
+.footer .footer-nav a,
+.footer .footer-social a,
+.footer .footer-legal a {
+  transition: color 0.2s ease;
+}
+
+.footer .footer-nav a {
+  font-size: 14px;
+}
+
+.footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .footer-legal a {
+  color: #999;
+  font-size: 12px;
+}
+
+.footer .footer-nav a:hover,
+.footer .footer-social a:hover,
+.footer .footer-legal a:hover {
+  color: #009a44;
+}
+
+/* Footer Social */
+.footer .footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #333;
+}
+
+.footer .footer-social .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.footer .footer-social .icon svg {
+  fill: currentcolor;
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer Legal */
+.footer .footer-legal {
+  border-top: 1px solid #333;
+  padding-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.footer .footer-legal p {
+  color: #999;
+  font-size: 12px;
+  margin: 0;
+}
+
+.footer .footer-legal img {
+  height: 40px;
+  width: auto;
+}
+
+/* Responsive: tablet and up */
+@media (width >= 600px) {
+  .footer .footer-nav {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Responsive: desktop */
+@media (width >= 900px) {
+  .footer .footer-nav {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

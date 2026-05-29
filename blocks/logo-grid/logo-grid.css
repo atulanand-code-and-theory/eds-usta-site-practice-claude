@@ -1,0 +1,31 @@
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 0;
+}
+
+.logo-grid > div {
+  display: contents;
+}
+
+.logo-grid .logo-grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-grid .logo-grid-item img {
+  max-height: 48px;
+  width: auto;
+  filter: grayscale(100%);
+  opacity: 0.8;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-grid .logo-grid-item img:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}

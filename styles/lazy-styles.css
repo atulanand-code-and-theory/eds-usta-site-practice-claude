@@ -1,1 +1,65 @@
-/* add global styles that can be loaded post LCP here */
+/* Lazy-loaded global styles (below the fold / post-LCP) */
+
+/* Smooth transitions for interactive elements */
+a.button:any-link,
+button.button {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+a:any-link {
+  transition: color 0.2s ease;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+a.button:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Footer spacing */
+footer {
+  margin-top: 64px;
+  border-top: 1px solid var(--color-border);
+}
+
+footer .footer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+/* Print media query */
+@media print {
+  header,
+  footer {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+  }
+
+  a:any-link {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  main {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  main > .section {
+    margin-bottom: 24px;
+  }
+}

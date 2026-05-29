@@ -1,43 +1,28 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
- * This file is licensed to you under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License. You may obtain a copy
- * of the License at http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software distributed under
- * the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
- * OF ANY KIND, either express or implied. See the License for the specific language
- * governing permissions and limitations under the License.
+ * USTA Global Styles
+ * Edge Delivery Services
  */
 
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* brand colors */
+  --color-brand-primary: #009a44;
+  --color-brand-secondary: #9acd00;
+  --color-brand-dark: #000;
+  --color-text: #333;
+  --color-text-light: #666;
+  --color-background: #fff;
+  --color-background-dark: #1a1a1a;
+  --color-background-gray: #f5f5f5;
+  --color-border: #e0e0e0;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --font-family-body: roboto, sans-serif;
+  --font-family-heading: "Roboto Condensed", sans-serif;
+  --font-size-body: 16px;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
-
-  /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
-
-  /* nav height */
-  --nav-height: 64px;
+  /* layout */
+  --max-width: 1200px;
+  --nav-height: 80px;
 }
 
 /* fallback fonts */
@@ -53,30 +38,25 @@
   src: local('Arial');
 }
 
-@media (width >= 900px) {
-  :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
+/* smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
 
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
-  }
+/* reset and base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
   display: none;
   margin: 0;
-  background-color: var(--background-color);
-  color: var(--text-color);
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body);
   line-height: 1.6;
 }
 
@@ -84,6 +64,7 @@ body.appear {
   display: block;
 }
 
+/* header placeholder */
 header {
   height: var(--nav-height);
 }
@@ -98,6 +79,7 @@ footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
 
+/* headings */
 h1,
 h2,
 h3,
@@ -106,19 +88,27 @@ h5,
 h6 {
   margin-top: 0.8em;
   margin-bottom: 0.25em;
-  font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  color: #000;
   line-height: 1.25;
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 { font-size: 48px; }
+h2 { font-size: 36px; }
+h3 { font-size: 28px; }
+h4 { font-size: 22px; }
+h5 { font-size: 20px; }
+h6 { font-size: 18px; }
 
+@media (width >= 900px) {
+  h1 { font-size: 56px; }
+  h2 { font-size: 42px; }
+  h3 { font-size: 32px; }
+}
+
+/* paragraphs and text elements */
 p,
 dl,
 ol,
@@ -129,40 +119,41 @@ blockquote {
   margin-bottom: 0.25em;
 }
 
-code,
-pre {
-  font-size: var(--body-font-size-s);
-}
-
-pre {
-  padding: 16px;
-  border-radius: 8px;
-  background-color: var(--light-color);
-  overflow-x: auto;
-  white-space: pre;
-}
-
-main > div {
-  margin: 40px 16px;
-}
-
-input,
-textarea,
-select,
-button {
-  font: inherit;
-}
-
 /* links */
 a:any-link {
-  color: var(--link-color);
+  color: var(--color-brand-primary);
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
 a:hover {
-  color: var(--link-hover-color);
   text-decoration: underline;
+}
+
+/* images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* main content */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+main > div {
+  margin: 40px 0;
+}
+
+/* form elements */
+input,
+textarea,
+select,
+button {
+  font: inherit;
 }
 
 /* buttons */
@@ -179,8 +170,8 @@ button.button {
   max-width: 100%;
   margin: 0;
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  border-radius: 4px;
+  padding: 12px 24px;
   font: inherit;
   font-weight: 500;
   line-height: 1.25;
@@ -195,95 +186,43 @@ a.button[aria-disabled="true"],
 button.button:disabled {
   cursor: not-allowed;
   pointer-events: none;
+  opacity: 0.6;
 }
 
 a.button.primary,
 button.button.primary {
-  border-color: var(--text-color);
-  background-color: var(--text-color);
-  color: var(--background-color);
+  border-color: var(--color-brand-primary);
+  background-color: var(--color-brand-primary);
+  color: #fff;
 }
 
 a.button.primary:hover,
 a.button.primary:focus-visible,
 button.button.primary:hover,
 button.button.primary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--dark-color);
-  color: var(--light-color);
-}
-
-a.button.primary[aria-disabled="true"],
-a.button.primary[aria-disabled="true"]:hover,
-a.button.primary[aria-disabled="true"]:focus-visible,
-button.button.primary:disabled,
-button.button.primary:disabled:hover,
-button.button.primary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: #007a36;
+  border-color: #007a36;
+  color: #fff;
+  text-decoration: none;
 }
 
 a.button.secondary,
 button.button.secondary {
-  border-color: var(--text-color);
+  border-color: var(--color-brand-primary);
   background-color: transparent;
-  color: var(--text-color);
+  color: var(--color-brand-primary);
 }
 
 a.button.secondary:hover,
 a.button.secondary:focus-visible,
 button.button.secondary:hover,
 button.button.secondary:focus-visible {
-  border-color: var(--dark-color);
-  background-color: var(--light-color);
-  color: var(--dark-color);
+  background-color: var(--color-brand-primary);
+  color: #fff;
+  text-decoration: none;
 }
 
-a.button.secondary[aria-disabled="true"],
-a.button.secondary[aria-disabled="true"]:hover,
-a.button.secondary[aria-disabled="true"]:focus-visible,
-button.button.secondary:disabled,
-button.button.secondary:disabled:hover,
-button.button.secondary:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-/* high-impact call-to-action */
-a.button.accent,
-button.button.accent {
-  border-color: var(--link-color);
-  background-color: var(--link-color);
-  color: var(--background-color);
-}
-
-a.button.accent:hover,
-a.button.accent:focus-visible,
-button.button.accent:hover,
-button.button.accent:focus-visible {
-  border-color: var(--link-hover-color);
-  background-color: var(--link-hover-color);
-}
-
-a.button.accent[aria-disabled="true"],
-a.button.accent[aria-disabled="true"]:hover,
-a.button.accent[aria-disabled="true"]:focus-visible,
-button.button.accent:disabled,
-button.button.accent:disabled:hover,
-button.button.accent:disabled:focus-visible {
-  background-color: var(--light-color);
-  border-color: var(--light-color);
-  color: var(--dark-color);
-}
-
-main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
-}
-
+/* icons */
 .icon {
   display: inline-block;
   height: 24px;
@@ -297,11 +236,11 @@ main img {
 
 /* sections */
 main > .section {
-  margin: 40px 0;
+  margin-bottom: 48px;
 }
 
 main > .section > div {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: auto;
   padding: 0 24px;
 }
@@ -317,9 +256,42 @@ main > .section:first-of-type {
 }
 
 /* section metadata */
+main .section[data-background="dark"] {
+  background-color: var(--color-background-dark);
+  color: #fff;
+  padding: 48px 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+main .section[data-background="dark"] h1,
+main .section[data-background="dark"] h2,
+main .section[data-background="dark"] h3,
+main .section[data-background="dark"] h4,
+main .section[data-background="dark"] h5,
+main .section[data-background="dark"] h6 {
+  color: #fff;
+}
+
+main .section[data-background="dark"] a:any-link {
+  color: var(--color-brand-secondary);
+}
+
+main .section[data-background="gray"] {
+  background-color: var(--color-background-gray);
+  padding: 48px 0;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  padding-left: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
+}
+
+/* legacy section metadata support */
 main .section.light,
 main .section.highlight {
-  background-color: var(--light-color);
+  background-color: var(--color-background-gray);
   margin: 0;
   padding: 40px 0;
 }
