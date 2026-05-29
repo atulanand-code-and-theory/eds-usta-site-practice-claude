@@ -8,6 +8,7 @@
   width: 100%;
   height: var(--nav-height, 80px);
   background-color: #000;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
 }
 
 .header .nav {
@@ -75,25 +76,43 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
 }
 
 .header .nav-brand img {
-  max-height: 40px;
+  max-height: 36px;
   width: auto;
 }
 
-/* Nav tools (search, user, cart) */
+/* Nav tools (sign in, join) */
 .header .nav-tools {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   margin-left: auto;
   flex-shrink: 0;
 }
 
 .header .nav-tools a {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   color: #fff;
   text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.header .nav-tools a:first-child {
+  background-color: transparent;
+  border: 1px solid #fff;
+}
+
+.header .nav-tools a:first-child:hover {
+  background-color: #fff;
+  color: #000;
 }
 
 .header .nav-tools .icon {
@@ -112,6 +131,8 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
   filter: brightness(0) invert(1);
 }
 
+/* stylelint-disable no-descending-specificity */
+
 /* Nav sections (main links) */
 .header .nav-sections {
   display: none;
@@ -122,7 +143,7 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
 .header .nav-sections > ul {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -134,12 +155,13 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
 
 .header .nav-sections > ul > li > a {
   display: block;
-  padding: 8px 12px;
+  padding: 8px 14px;
   color: #fff;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
+  font-family: 'Roboto Condensed', sans-serif;
   letter-spacing: 0.5px;
   white-space: nowrap;
   border-bottom: 3px solid transparent;
@@ -149,6 +171,7 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
 .header .nav-sections > ul > li > a:hover,
 .header .nav-sections > ul > li > a:focus {
   border-bottom-color: #9acd00;
+  text-decoration: none;
 }
 
 /* Dropdown arrow */
@@ -157,10 +180,10 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
   display: inline-block;
   width: 0;
   height: 0;
-  margin-left: 6px;
+  margin-left: 5px;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 4px solid #fff;
+  border-top: 4px solid #9acd00;
   vertical-align: middle;
   transition: transform 0.2s ease;
 }
@@ -176,11 +199,11 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
   top: 100%;
   left: 0;
   flex-direction: column;
-  min-width: 220px;
+  min-width: 200px;
   padding: 8px 0;
   background-color: #1a1a1a;
   border-radius: 4px;
-  box-shadow: 0 4px 16px rgb(0 0 0 / 30%);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
   z-index: 10;
 }
 
@@ -191,28 +214,25 @@ body.nav-open .header .nav-hamburger span:nth-child(3) {
 .header .nav-sections .nav-drop > ul > li > a {
   display: block;
   padding: 10px 20px;
-  color: #fff;
+  color: #ccc;
   font-size: 13px;
   font-weight: 500;
   text-decoration: none;
   text-transform: none;
   white-space: nowrap;
   border-bottom: none;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .header .nav-sections .nav-drop > ul > li > a:hover,
 .header .nav-sections .nav-drop > ul > li > a:focus {
   background-color: #2a2a2a;
+  color: #fff;
 }
 
 /*
  * Mobile nav overlay and dropdown overrides.
- * These selectors intentionally target different DOM elements than the dropdown
- * selectors above (top-level nav links vs nested dropdown links) but stylelint
- * cannot reason about DOM structure, creating a circular specificity conflict.
  */
-/* stylelint-disable no-descending-specificity */
 body.nav-open {
   overflow: hidden;
 }
@@ -276,11 +296,14 @@ body.nav-open .header .nav-sections .nav-drop ul {
 body.nav-open .header .nav-sections .nav-drop > ul > li > a {
   padding: 12px 0;
   font-size: 16px;
+  color: #999;
 }
 
 body.nav-open .header .nav-sections .nav-drop > ul > li > a:hover {
   background-color: transparent;
+  color: #9acd00;
 }
+
 /* stylelint-enable no-descending-specificity */
 
 /* Desktop styles */
@@ -299,6 +322,10 @@ body.nav-open .header .nav-sections .nav-drop > ul > li > a:hover {
 
   .header .nav-brand {
     margin-right: 24px;
+  }
+
+  .header .nav-brand img {
+    max-height: 40px;
   }
 
   .header .nav-tools {
@@ -326,8 +353,8 @@ body.nav-open .header .nav-sections .nav-drop > ul > li > a:hover {
   }
 
   body.nav-open .header .nav-sections > ul > li > a {
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 8px 14px;
+    font-size: 13px;
     border-bottom: 3px solid transparent;
   }
 
@@ -344,10 +371,11 @@ body.nav-open .header .nav-sections .nav-drop > ul > li > a:hover {
   }
 
   .header .nav-sections > ul {
-    gap: 12px;
+    gap: 8px;
   }
 
   .header .nav-sections > ul > li > a {
     padding: 8px 16px;
+    font-size: 14px;
   }
 }
