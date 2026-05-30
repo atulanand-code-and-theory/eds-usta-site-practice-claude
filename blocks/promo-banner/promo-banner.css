@@ -1,24 +1,36 @@
 .promo-banner-wrapper {
-  padding: 40px 24px;
+  padding: 32px 24px;
+  background-color: var(--color-background-gray);
 }
 
 .promo-banner {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 32px 24px;
   text-align: center;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
 }
 
 .promo-banner > div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .promo-banner > div > div:first-child picture {
   display: flex;
   justify-content: center;
+}
+
+.promo-banner p {
+  color: #000;
+  font-size: 16px;
+  font-family: var(--font-family-body);
+  line-height: 1.5;
+  margin: 6px 0;
 }
 
 .promo-banner > div > div:first-child img {
@@ -27,43 +39,56 @@
   object-fit: contain;
 }
 
+.promo-banner > div > div:first-child p:first-child {
+  font-family: var(--font-family-button);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666;
+  margin: 0;
+}
+
+.promo-banner > div > div:first-child p:last-child {
+  font-family: var(--font-family-heading);
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #000;
+  margin: 4px 0 0;
+  line-height: 1.05;
+}
+
 .promo-banner h4 {
   font-family: var(--font-family-heading);
   font-size: 36px;
-  font-weight: 400;
-  text-transform: none;
+  font-weight: 700;
+  text-transform: uppercase;
   color: #000;
   margin: 10px 0;
-  line-height: 0.9;
-}
-
-.promo-banner p {
-  color: #000;
-  font-size: 16px;
-  font-family: var(--font-family-body);
-  line-height: 1.5;
-  margin: 8px 0;
+  line-height: 1.05;
 }
 
 .promo-banner strong a,
 .promo-banner a.button {
   display: inline-block;
-  padding: 14px 28px;
-  background-color: #000;
-  color: #fff;
+  padding: 12px 24px;
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
   border-radius: 9999px;
   text-decoration: none;
   font-family: var(--font-family-button);
-  font-size: 18px;
+  font-size: 16px;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 
 .promo-banner strong a:hover,
 .promo-banner a.button:hover {
-  background-color: #333;
+  background-color: #b8e600;
   text-decoration: none;
   transform: scale(1.02);
 }
@@ -92,11 +117,18 @@
 
 @media (width >= 900px) {
   .promo-banner-wrapper {
-    padding: 48px 32px;
+    padding: 40px 32px;
+  }
+
+  .promo-banner {
+    padding: 40px 32px;
+  }
+
+  .promo-banner > div > div:first-child p:last-child {
+    font-size: 42px;
   }
 
   .promo-banner h4 {
-    font-size: 56px;
-    line-height: 50.5px;
+    font-size: 48px;
   }
 }

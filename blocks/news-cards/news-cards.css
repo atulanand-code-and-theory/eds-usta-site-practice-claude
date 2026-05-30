@@ -131,7 +131,7 @@
 /* SEE ALL NEWS link styling */
 .news-cards-wrapper + .default-content-wrapper {
   text-align: center;
-  margin-top: 32px;
+  margin-top: 24px;
 }
 
 .news-cards-wrapper + .default-content-wrapper a {

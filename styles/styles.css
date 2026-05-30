@@ -247,7 +247,7 @@ button.button.tertiary:focus-visible {
 /* sections */
 main > .section {
   margin-bottom: 0;
-  padding: var(--section-padding) 24px;
+  padding: 32px 24px;
 }
 
 main > .section > div {
@@ -265,7 +265,7 @@ main > .section:first-of-type {
 
 @media (width >= 900px) {
   main > .section {
-    padding: 56px 32px;
+    padding: 40px 32px;
   }
 
   main > .section:first-of-type {
@@ -363,7 +363,18 @@ main .section[data-background="light-blue"] {
   text-decoration: none;
 }
 
-/* column CTA buttons on dark-background sections */
+/* column text and CTA on dark-background sections */
+main .section[data-background="dark-green"] .columns-wrapper .columns .columns-col h2,
+main .section[data-background="dark-green"] .columns-wrapper .columns .columns-col h3,
+main .section[data-background="dark-green"] .columns-wrapper .columns .columns-col h4,
+main .section[data-background="dark-green"] .columns-wrapper .columns .columns-col p,
+main .section[data-background="dark"] .columns-wrapper .columns .columns-col h2,
+main .section[data-background="dark"] .columns-wrapper .columns .columns-col h3,
+main .section[data-background="dark"] .columns-wrapper .columns .columns-col h4,
+main .section[data-background="dark"] .columns-wrapper .columns .columns-col p {
+  color: #fff;
+}
+
 main .section[data-background="dark-green"] .columns-wrapper .columns .columns-col a,
 main .section[data-background="dark"] .columns-wrapper .columns .columns-col a {
   background-color: var(--color-brand-primary);
@@ -389,9 +400,29 @@ main > .section.columns-container > div {
   padding: 0;
 }
 
+main > .section.hero-container + .section.columns-container {
+  margin-top: 0;
+}
+
+main > .section.columns-container + .section.columns-container {
+  margin-top: 0;
+}
+
 /* accent-left section style - green left border */
 main .section[data-style="accent-left"] {
   border-left: 10px solid var(--color-brand-light-green);
+}
+
+/* news section top border */
+main .section.news-cards-container {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 32px;
+}
+
+/* help section top border */
+main .section.help-links-container {
+  border-top: 1px solid #e0e0e0;
+  padding-top: 32px;
 }
 
 /* legacy section metadata support */

@@ -44,6 +44,23 @@ async function loadFonts() {
 }
 
 /**
+ * Applies background styling to columns sections based on content order.
+ * Matches live site: section 3 (National Tennis Month) gets dark background,
+ * section 4 (Local Park) gets dark-green background.
+ * @param {Element} main The container element
+ */
+function styleColumnsSections(main) {
+  const columnsSections = main.querySelectorAll('.section.columns-container');
+  columnsSections.forEach((section, index) => {
+    if (index === 1) {
+      section.dataset.background = 'dark';
+    } else if (index === 2) {
+      section.dataset.background = 'dark-green';
+    }
+  });
+}
+
+/**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
  */
@@ -105,6 +122,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  styleColumnsSections(main);
   decorateButtons(main);
 }
 

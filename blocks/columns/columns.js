@@ -8,10 +8,13 @@ export default function decorate(block) {
     const cols = [...row.children];
     cols.forEach((col) => {
       col.classList.add('columns-col');
-      // detect image-only columns
       const pics = col.querySelectorAll('picture');
-      const hasOnlyImages = pics.length > 0
-        && col.childElementCount === pics.length;
+      const imgs = col.querySelectorAll('img');
+      const hasOnlyImages = (pics.length > 0 && col.childElementCount === pics.length)
+        || (imgs.length > 0 && col.childElementCount === 1
+          && col.children[0].tagName === 'P'
+          && col.children[0].querySelector('img')
+          && !col.children[0].textContent.trim().replace(/\s/g, ''));
       if (hasOnlyImages) {
         col.classList.add('columns-img-col');
       }
