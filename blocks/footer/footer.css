@@ -1,43 +1,39 @@
 /* stylelint-disable no-descending-specificity */
 
 .footer {
-  background-color: #0c0c0c;
-  color: #cfcfcf;
-  padding: 44px 0 22px;
+  background-color: #000;
+  color: #fff;
+  padding: 0;
 }
 
 .footer .footer-content {
-  max-width: 1200px;
+  max-width: 1440px;
   margin: 0 auto;
-  padding: 0 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 35px 26px 40px;
 }
 
 /* Links base styles */
 .footer a {
-  color: #cfcfcf;
+  color: #fff;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: opacity 0.2s ease;
 }
 
 .footer a:hover {
-  color: #fff;
-}
-
-/* Footer top row: logo | nav columns | social/apps */
-.footer .footer-top {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  flex-wrap: wrap;
+  opacity: 0.8;
 }
 
 /* Logo */
 .footer .footer-logo {
-  flex-shrink: 0;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .footer .footer-logo img {
-  height: 36px;
+  height: 28px;
   width: auto;
 }
 
@@ -45,13 +41,9 @@
   margin: 0;
 }
 
-/* Navigation columns */
+/* Navigation links - single vertical list */
 .footer .footer-nav {
-  display: flex;
-  gap: 64px;
-  flex-wrap: wrap;
-  flex: 1;
-  justify-content: center;
+  text-align: center;
 }
 
 .footer .footer-nav ul {
@@ -61,21 +53,22 @@
 }
 
 .footer .footer-nav li {
-  font-size: 13px;
-  padding: 5px 0;
+  padding: 10px 0;
 }
 
 .footer .footer-nav a {
-  color: #cfcfcf;
-}
-
-.footer .footer-nav a:hover {
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
   color: #fff;
 }
 
-/* Social + Apps column */
+/* Social + Apps section */
 .footer .footer-social {
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 24px;
 }
 
 .footer .footer-social ul {
@@ -84,111 +77,74 @@
   margin: 0;
 }
 
+/* Social icons row */
 .footer .footer-social ul:first-child {
   display: flex;
-  gap: 14px;
-  justify-content: flex-end;
-  margin-bottom: 12px;
-}
-
-.footer .footer-social ul:first-child li {
-  margin: 0;
-}
-
-.footer .footer-social ul:first-child a {
-  display: inline-flex;
-  align-items: center;
+  gap: 24px;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  margin-bottom: 24px;
 }
 
 .footer .footer-social ul:first-child .icon {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
 }
 
 .footer .footer-social ul:first-child .icon img {
-  width: 22px;
-  height: 22px;
+  width: 30px;
+  height: 30px;
   filter: brightness(0) invert(1);
 }
 
 /* USTA APPS label */
 .footer .footer-social > p {
-  font-size: 12px;
-  color: #aaa;
-  margin: 12px 0 8px;
-  text-align: right;
+  font-size: 18px;
+  color: #fff;
+  margin: 0 0 16px;
+  text-align: center;
 }
 
 /* App icons list */
 .footer .footer-social ul:last-child {
   display: flex;
-  gap: 8px;
-  justify-content: flex-end;
-}
-
-.footer .footer-social ul:last-child li {
-  margin: 0;
+  gap: 10px;
+  justify-content: center;
 }
 
 .footer .footer-social ul:last-child img {
-  width: 28px;
-  height: 28px;
-  border-radius: 4px;
+  width: 57px;
+  height: 57px;
+  border-radius: 3px;
 }
 
-/* Footer bottom - copyright */
-.footer .footer-bottom {
-  border-top: 1px solid #2a2a2a;
-  margin-top: 36px;
-  padding-top: 20px;
+/* Privacy badge */
+.footer .footer-privacy {
+  margin-top: 40px;
   text-align: center;
-  font-size: 12px;
-  color: #8c8c8c;
+}
+
+.footer .footer-privacy p {
+  margin: 0;
+}
+
+.footer .footer-privacy .icon {
+  width: 68px;
+  height: 70px;
+}
+
+.footer .footer-privacy .icon img {
+  width: 68px;
+  height: 70px;
+}
+
+/* Copyright */
+.footer .footer-bottom {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
 }
 
 .footer .footer-bottom p {
   margin: 0;
-}
-
-/* Responsive: mobile */
-@media (width < 600px) {
-  .footer .footer-top {
-    flex-direction: column;
-    gap: 24px;
-  }
-
-  .footer .footer-nav {
-    gap: 32px;
-  }
-
-  .footer .footer-social {
-    text-align: left;
-  }
-
-  .footer .footer-social ul:first-child {
-    justify-content: flex-start;
-  }
-
-  .footer .footer-social > p {
-    text-align: left;
-  }
-
-  .footer .footer-social ul:last-child {
-    justify-content: flex-start;
-  }
-}
-
-/* Responsive: tablet */
-@media (width >= 600px) and (width < 900px) {
-  .footer .footer-top {
-    flex-wrap: wrap;
-  }
-
-  .footer .footer-logo {
-    width: 100%;
-    margin-bottom: 10px;
-  }
 }

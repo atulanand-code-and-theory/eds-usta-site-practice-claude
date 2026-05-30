@@ -17,15 +17,8 @@ export default async function decorate(block) {
   if (sections.length > 0) sections[0].className = 'footer-logo';
   if (sections.length > 1) sections[1].className = 'footer-nav';
   if (sections.length > 2) sections[2].className = 'footer-social';
-  if (sections.length > 3) sections[3].className = 'footer-bottom';
-
-  // Wrap the top sections in a flex container
-  const topRow = document.createElement('div');
-  topRow.className = 'footer-top';
-  if (sections[0]) topRow.append(sections[0]);
-  if (sections[1]) topRow.append(sections[1]);
-  if (sections[2]) topRow.append(sections[2]);
-  footer.prepend(topRow);
+  if (sections.length > 3) sections[3].className = 'footer-privacy';
+  if (sections.length > 4) sections[4].className = 'footer-bottom';
 
   decorateIcons(footer);
   block.textContent = '';
