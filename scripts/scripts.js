@@ -121,6 +121,20 @@ async function loadEager(doc) {
     while (document.body.firstChild) main.append(document.body.firstChild);
     document.body.prepend(main);
   }
+  if (!main.querySelector(':scope > div')) {
+    const children = [...main.childNodes];
+    let currentDiv = document.createElement('div');
+    main.textContent = '';
+    children.forEach((node) => {
+      if (node.nodeName === 'HR') {
+        if (currentDiv.childNodes.length) main.append(currentDiv);
+        currentDiv = document.createElement('div');
+      } else {
+        currentDiv.append(node);
+      }
+    });
+    if (currentDiv.childNodes.length) main.append(currentDiv);
+  }
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');
