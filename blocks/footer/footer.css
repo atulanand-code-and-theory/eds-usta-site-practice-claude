@@ -1,66 +1,43 @@
 /* stylelint-disable no-descending-specificity */
 
 .footer {
-  background-color: #000;
-  color: #fff;
-  padding: 0;
+  background-color: #0c0c0c;
+  color: #cfcfcf;
+  padding: 44px 0 22px;
 }
 
 .footer .footer-content {
-  max-width: 1440px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 26px;
 }
 
 /* Links base styles */
 .footer a {
-  color: #fff;
+  color: #cfcfcf;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .footer a:hover {
-  color: var(--color-brand-primary);
-  text-decoration: none;
-}
-
-/* App Download Banner */
-.footer .footer-app-download {
-  background-color: #1a1a1a;
-  padding: 24px;
-  text-align: center;
-  border-bottom: 1px solid #333;
-}
-
-.footer .footer-app-download p:first-child {
-  font-family: var(--font-family-button);
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 16px;
   color: #fff;
 }
 
-.footer .footer-app-download p:not(:first-child) {
-  display: inline-block;
-  margin: 0 8px;
+/* Footer top row: logo | nav columns | social/apps */
+.footer .footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.footer .footer-app-download img {
-  height: 40px;
-  width: auto;
-}
-
-/* Footer Main - Logo + Nav Links */
-.footer .footer-main {
-  padding: 40px 24px;
-}
-
+/* Logo */
 .footer .footer-logo {
-  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
 .footer .footer-logo img {
-  height: 48px;
+  height: 36px;
   width: auto;
 }
 
@@ -68,196 +45,150 @@
   margin: 0;
 }
 
-.footer .footer-main ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Navigation columns */
+.footer .footer-nav {
   display: flex;
+  gap: 64px;
   flex-wrap: wrap;
-  gap: 8px 24px;
+  flex: 1;
+  justify-content: center;
 }
 
-.footer .footer-main li {
-  margin: 0;
-}
-
-.footer .footer-main a {
-  font-family: var(--font-family-button);
-  font-size: 14px;
-  color: #fff;
-  padding: 4px 0;
-  display: inline-block;
-}
-
-.footer .footer-main a:hover {
-  color: var(--color-brand-primary);
-}
-
-/* Footer Social + Apps Section */
-.footer .footer-social-apps {
-  padding: 24px;
-  border-top: 1px solid #333;
-}
-
-.footer .footer-social-list {
+.footer .footer-nav ul {
   list-style: none;
   padding: 0;
-  margin: 0 0 24px;
-  display: flex;
-  gap: 16px;
-}
-
-.footer .footer-social-list li {
   margin: 0;
 }
 
-.footer .footer-social-list a {
+.footer .footer-nav li {
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+.footer .footer-nav a {
+  color: #cfcfcf;
+}
+
+.footer .footer-nav a:hover {
+  color: #fff;
+}
+
+/* Social + Apps column */
+.footer .footer-social {
+  text-align: right;
+}
+
+.footer .footer-social ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer .footer-social ul:first-child {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.footer .footer-social ul:first-child li {
+  margin: 0;
+}
+
+.footer .footer-social ul:first-child a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background-color: #333;
-  transition: background-color 0.2s ease;
+  width: 26px;
+  height: 26px;
 }
 
-.footer .footer-social-list a:hover {
-  background-color: var(--color-brand-primary);
+.footer .footer-social ul:first-child .icon {
+  width: 22px;
+  height: 22px;
 }
 
-.footer .footer-social-list .icon {
-  width: 18px;
-  height: 18px;
+.footer .footer-social ul:first-child .icon img {
+  width: 22px;
+  height: 22px;
+  filter: brightness(0) invert(1);
 }
 
-.footer .footer-social-list .icon svg {
-  fill: #fff;
-  width: 18px;
-  height: 18px;
-}
-
-.footer .footer-social-list a:hover .icon svg {
-  fill: #000;
-}
-
-/* USTA APPS heading */
-.footer .footer-social-apps > p {
-  font-family: var(--font-family-button);
+/* USTA APPS label */
+.footer .footer-social > p {
   font-size: 12px;
-  font-weight: 600;
-  color: #999;
-  letter-spacing: 1px;
-  margin: 0 0 12px;
+  color: #aaa;
+  margin: 12px 0 8px;
+  text-align: right;
 }
 
-.footer .footer-apps-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* App icons list */
+.footer .footer-social ul:last-child {
   display: flex;
-  gap: 12px;
+  gap: 8px;
+  justify-content: flex-end;
 }
 
-.footer .footer-apps-list li {
+.footer .footer-social ul:last-child li {
   margin: 0;
 }
 
-.footer .footer-apps-list a {
-  display: block;
+.footer .footer-social ul:last-child img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
 }
 
-.footer .footer-apps-list img {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-}
-
-/* Copyright Bar */
-.footer .footer-copyright {
-  padding: 20px 24px;
-  border-top: 1px solid #333;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-
-.footer .footer-copyright p {
-  margin: 0;
+/* Footer bottom - copyright */
+.footer .footer-bottom {
+  border-top: 1px solid #2a2a2a;
+  margin-top: 36px;
+  padding-top: 20px;
+  text-align: center;
   font-size: 12px;
-  color: #999;
+  color: #8c8c8c;
 }
 
-.footer .footer-copyright img {
-  height: 32px;
-  width: auto;
+.footer .footer-bottom p {
+  margin: 0;
 }
 
-/* Responsive: tablet and up */
-@media (width >= 600px) {
-  .footer .footer-app-download {
-    padding: 32px;
+/* Responsive: mobile */
+@media (width < 600px) {
+  .footer .footer-top {
+    flex-direction: column;
+    gap: 24px;
   }
 
-  .footer .footer-main {
-    padding: 40px 32px;
+  .footer .footer-nav {
+    gap: 32px;
   }
 
-  .footer .footer-social-apps {
-    padding: 24px 32px;
+  .footer .footer-social {
+    text-align: left;
   }
 
-  .footer .footer-copyright {
-    padding: 20px 32px;
+  .footer .footer-social ul:first-child {
+    justify-content: flex-start;
+  }
+
+  .footer .footer-social > p {
+    text-align: left;
+  }
+
+  .footer .footer-social ul:last-child {
+    justify-content: flex-start;
   }
 }
 
-/* Responsive: desktop */
-@media (width >= 900px) {
-  .footer .footer-content {
-    padding: 0;
-  }
-
-  .footer .footer-main {
-    padding: 48px 40px;
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    gap: 0 40px;
-    align-items: start;
+/* Responsive: tablet */
+@media (width >= 600px) and (width < 900px) {
+  .footer .footer-top {
+    flex-wrap: wrap;
   }
 
   .footer .footer-logo {
-    grid-column: 1;
-    grid-row: 1;
-    margin-bottom: 0;
-  }
-
-  .footer .footer-main ul {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  .footer .footer-social-apps {
-    padding: 24px 40px;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .footer .footer-social-list {
-    margin-bottom: 0;
-  }
-
-  .footer .footer-social-apps > p {
-    margin: 0;
-  }
-
-  .footer .footer-apps-list {
-    margin: 0;
-  }
-
-  .footer .footer-copyright {
-    padding: 20px 40px;
+    width: 100%;
+    margin-bottom: 10px;
   }
 }
