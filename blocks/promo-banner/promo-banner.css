@@ -1,23 +1,19 @@
 .promo-banner-wrapper {
-  padding: 32px 24px;
+  padding: 40px 24px;
 }
 
 .promo-banner {
-  background-color: #fff;
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 40px 24px;
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto;
+  padding: 20px;
   text-align: center;
-  box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
 }
 
 .promo-banner > div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 .promo-banner > div > div:first-child picture {
@@ -26,46 +22,48 @@
 }
 
 .promo-banner > div > div:first-child img {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
 .promo-banner h4 {
   font-family: var(--font-family-heading);
-  font-size: 28px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 400;
+  text-transform: none;
   color: #000;
-  margin: 8px 0;
-  line-height: 1.2;
+  margin: 10px 0;
+  line-height: 0.9;
 }
 
 .promo-banner p {
-  color: var(--color-text);
+  color: #000;
   font-size: 16px;
-  line-height: 1.6;
-  margin: 4px 0;
+  font-family: var(--font-family-body);
+  line-height: 1.5;
+  margin: 8px 0;
 }
 
-.promo-banner a {
+.promo-banner strong a,
+.promo-banner a.button {
   display: inline-block;
-  padding: var(--button-padding);
-  background-color: var(--color-brand-primary);
-  color: var(--color-brand-primary-text);
-  border-radius: var(--button-border-radius);
+  padding: 14px 28px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 9999px;
   text-decoration: none;
   font-family: var(--font-family-button);
-  font-weight: 600;
-  font-size: var(--button-font-size);
+  font-size: 18px;
   text-transform: uppercase;
-  letter-spacing: var(--button-letter-spacing);
+  letter-spacing: 1px;
   transition: background-color 0.2s ease, transform 0.1s ease;
   margin-top: 12px;
 }
 
-.promo-banner a:hover {
-  background-color: #b8e600;
+.promo-banner strong a:hover,
+.promo-banner a.button:hover {
+  background-color: #333;
   text-decoration: none;
   transform: scale(1.02);
 }
@@ -75,18 +73,30 @@
   color: #666;
   margin-top: 16px;
   line-height: 1.5;
+  max-width: 600px;
 }
 
-@media (width >= 600px) {
+.promo-banner > div > div:last-child p:last-child a {
+  color: var(--color-link);
+  text-decoration: underline;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+  display: inline;
+  margin: 0;
+}
+
+@media (width >= 900px) {
   .promo-banner-wrapper {
     padding: 48px 32px;
   }
 
-  .promo-banner {
-    padding: 48px 40px;
-  }
-
   .promo-banner h4 {
-    font-size: 36px;
+    font-size: 56px;
+    line-height: 50.5px;
   }
 }

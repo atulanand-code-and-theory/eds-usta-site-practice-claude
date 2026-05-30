@@ -1,78 +1,61 @@
 .hero-wrapper {
-  background-color: var(--color-background-dark);
+  background-color: #000;
 }
 
 .hero {
-  background-color: var(--color-background-dark);
+  background-color: #000;
   width: 100%;
   overflow: hidden;
   position: relative;
+  min-height: 400px;
 }
 
 .hero > div {
-  display: flex;
-  flex-direction: column;
   position: relative;
+  min-height: 400px;
 }
 
 .hero .hero-content {
-  padding: 60px 24px;
+  position: relative;
+  z-index: 1;
+  padding: 80px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   color: #fff;
-  position: relative;
-  z-index: 1;
+  min-height: 400px;
 }
 
 .hero .hero-content h1,
 .hero .hero-content h2,
 .hero .hero-content h3 {
   font-family: var(--font-family-heading);
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 16px;
-  font-size: 48px;
-  line-height: 1.05;
-  text-transform: uppercase;
-}
-
-.hero .hero-content p,
-.hero .hero-content strong {
+  font-weight: 500;
   color: #fff;
   margin: 0;
-  font-family: var(--font-family-heading);
-  font-size: 18px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: 60px;
+  line-height: 1.1;
+  text-transform: none;
 }
 
-.hero .hero-content a.button {
-  background-color: var(--color-brand-primary);
-  color: var(--color-brand-primary-text);
-  font-family: var(--font-family-button);
-  font-weight: 600;
-  padding: var(--button-padding);
-  border-radius: var(--button-border-radius);
-  text-decoration: none;
-  display: inline-block;
-  font-size: var(--button-font-size);
-  letter-spacing: var(--button-letter-spacing);
-  text-transform: uppercase;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: 16px;
+.hero .hero-content p {
+  color: #fff;
+  margin: 16px 0 0;
+  font-family: var(--font-family-body);
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
-.hero .hero-content a.button:hover {
-  background-color: #b8e600;
-  transform: scale(1.02);
+.hero .hero-content p strong {
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  font-size: 24px;
 }
 
 .hero .hero-image {
-  width: 100%;
   position: absolute;
   inset: 0;
   z-index: 0;
@@ -82,7 +65,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgb(0 0 0 / 50%), rgb(0 0 0 / 30%));
+  background: linear-gradient(to bottom, rgb(0 0 0 / 40%), rgb(0 0 0 / 20%));
 }
 
 .hero .hero-image img {
@@ -93,20 +76,31 @@
 }
 
 @media (width >= 900px) {
+  .hero {
+    min-height: 566px;
+  }
+
+  .hero > div {
+    min-height: 566px;
+  }
+
   .hero .hero-content {
     padding: 120px 48px;
-    min-height: 480px;
+    min-height: 566px;
   }
 
   .hero .hero-content h1,
   .hero .hero-content h2,
   .hero .hero-content h3 {
-    font-size: var(--heading-size-xxl);
+    font-size: 100px;
+    line-height: 110px;
   }
 
-  .hero .hero-content p,
-  .hero .hero-content strong {
-    font-size: 24px;
-    letter-spacing: 3px;
+  .hero .hero-content p {
+    font-size: 34px;
+  }
+
+  .hero .hero-content p strong {
+    font-size: 34px;
   }
 }
