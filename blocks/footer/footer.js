@@ -14,10 +14,30 @@ export default async function decorate(block) {
   footer.innerHTML = html;
 
   const sections = footer.querySelectorAll(':scope > div');
-  if (sections.length > 0) sections[0].className = 'footer-brand';
-  if (sections.length > 1) sections[1].className = 'footer-nav';
-  if (sections.length > 2) sections[2].className = 'footer-social';
-  if (sections.length > 3) sections[3].className = 'footer-legal';
+  if (sections.length > 0) sections[0].className = 'footer-app-download';
+  if (sections.length > 1) sections[1].className = 'footer-main';
+  if (sections.length > 2) sections[2].className = 'footer-social-apps';
+  if (sections.length > 3) sections[3].className = 'footer-copyright';
+
+  // Split footer-main into logo and nav
+  const mainSection = footer.querySelector('.footer-main');
+  if (mainSection) {
+    const logo = mainSection.querySelector('img');
+    if (logo) {
+      const logoWrapper = document.createElement('div');
+      logoWrapper.className = 'footer-logo';
+      logoWrapper.append(logo.closest('p') || logo);
+      mainSection.prepend(logoWrapper);
+    }
+  }
+
+  // Split social-apps into social links and app links
+  const socialAppsSection = footer.querySelector('.footer-social-apps');
+  if (socialAppsSection) {
+    const lists = socialAppsSection.querySelectorAll('ul');
+    if (lists.length > 0) lists[0].classList.add('footer-social-list');
+    if (lists.length > 1) lists[1].classList.add('footer-apps-list');
+  }
 
   decorateIcons(footer);
   block.textContent = '';
