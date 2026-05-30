@@ -377,6 +377,11 @@ main > .section.columns-container {
   }
 }
 
+/* accent-left section style - green left border */
+main .section[data-style="accent-left"] {
+  border-left: 6px solid var(--color-brand-light-green);
+}
+
 /* legacy section metadata support */
 main .section.light,
 main .section.highlight {

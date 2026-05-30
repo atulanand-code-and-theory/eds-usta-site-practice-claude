@@ -4,7 +4,7 @@
   padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 32px;
 }
 
 @media (width >= 600px) {
@@ -15,75 +15,83 @@
 
 @media (width >= 900px) {
   .cards ul {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
   }
 }
 
 .cards .cards-card {
   background: #fff;
-  border-radius: 8px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 2px 12px rgb(0 0 0 / 8%);
-  transition: box-shadow 0.2s ease-in-out, transform 0.2s ease;
-}
-
-.cards .cards-card:hover {
-  box-shadow: 0 6px 24px rgb(0 0 0 / 15%);
-  transform: translateY(-2px);
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
 }
 
 .cards .cards-card-image {
   line-height: 0;
+  margin-bottom: 20px;
 }
 
 .cards .cards-card-image picture {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
 }
 
 .cards .cards-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
 }
 
 .cards .cards-card-body {
-  padding: 20px 24px 24px;
   flex: 1;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.cards .cards-card-body h4 {
+.cards .cards-card-body h4,
+.cards .cards-card-body h5 {
   margin: 0 0 12px;
+  font-family: var(--font-family-heading);
   font-weight: 700;
-  font-size: 1.125rem;
-  color: #1a1a1a;
+  font-size: 22px;
+  color: #000;
+  text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .cards .cards-card-body p {
-  margin: 0 0 12px;
-  color: var(--color-text-light);
+  margin: 0 0 16px;
+  color: var(--color-text);
   line-height: 1.6;
-  font-size: 0.9375rem;
+  font-size: 15px;
 }
 
 .cards .cards-card-body a {
-  color: var(--color-link);
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
+  border-radius: var(--button-border-radius);
   text-decoration: none;
   font-family: var(--font-family-button);
   font-weight: 600;
-  font-size: 0.875rem;
+  font-size: 14px;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
-  transition: color 0.2s ease-in-out;
+  letter-spacing: 1px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
   margin-top: auto;
 }
 
 .cards .cards-card-body a:hover {
-  color: var(--color-link-hover);
-  text-decoration: underline;
+  background-color: #b8e600;
+  text-decoration: none;
+  transform: scale(1.02);
 }

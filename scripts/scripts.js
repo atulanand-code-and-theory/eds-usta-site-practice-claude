@@ -115,7 +115,12 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
-  const main = doc.querySelector('main');
+  let main = doc.querySelector('main');
+  if (!main) {
+    main = document.createElement('main');
+    while (document.body.firstChild) main.append(document.body.firstChild);
+    document.body.prepend(main);
+  }
   if (main) {
     decorateMain(main);
     document.body.classList.add('appear');

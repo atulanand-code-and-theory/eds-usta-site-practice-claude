@@ -6,34 +6,25 @@
   background-color: var(--color-background-dark);
   width: 100%;
   overflow: hidden;
-  max-width: var(--max-width);
-  margin: 0 auto;
+  position: relative;
 }
 
 .hero > div {
   display: flex;
   flex-direction: column;
-}
-
-.hero .hero-content {
-  padding: 48px 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  color: #fff;
   position: relative;
 }
 
-.hero .hero-content::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  background-color: var(--color-brand-primary);
-  position: absolute;
-  bottom: 48px;
-  left: 24px;
+.hero .hero-content {
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  z-index: 1;
 }
 
 .hero .hero-content h1,
@@ -42,22 +33,21 @@
   font-family: var(--font-family-heading);
   font-weight: 700;
   color: #fff;
-  margin: 0 0 24px;
-  font-size: 2rem;
+  margin: 0 0 16px;
+  font-size: 48px;
   line-height: 1.05;
   text-transform: uppercase;
 }
 
-.hero .hero-content p {
+.hero .hero-content p,
+.hero .hero-content strong {
   color: #fff;
-  margin: 0 0 16px;
-  font-family: var(--font-family-body);
-}
-
-.hero .hero-content img {
-  max-width: 180px;
-  height: auto;
-  margin-bottom: 24px;
+  margin: 0;
+  font-family: var(--font-family-heading);
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
 .hero .hero-content a.button {
@@ -73,7 +63,7 @@
   letter-spacing: var(--button-letter-spacing);
   text-transform: uppercase;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: 8px;
+  margin-top: 16px;
 }
 
 .hero .hero-content a.button:hover {
@@ -83,8 +73,16 @@
 
 .hero .hero-image {
   width: 100%;
-  min-height: 280px;
-  overflow: hidden;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero .hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgb(0 0 0 / 50%), rgb(0 0 0 / 30%));
 }
 
 .hero .hero-image img {
@@ -95,29 +93,20 @@
 }
 
 @media (width >= 900px) {
-  .hero > div {
-    flex-direction: row;
-    min-height: 480px;
-  }
-
   .hero .hero-content {
-    width: 45%;
-    padding: 64px 48px;
-  }
-
-  .hero .hero-content::after {
-    bottom: 64px;
-    left: 48px;
+    padding: 120px 48px;
+    min-height: 480px;
   }
 
   .hero .hero-content h1,
   .hero .hero-content h2,
   .hero .hero-content h3 {
-    font-size: 2.75rem;
+    font-size: var(--heading-size-xxl);
   }
 
-  .hero .hero-image {
-    width: 55%;
-    min-height: unset;
+  .hero .hero-content p,
+  .hero .hero-content strong {
+    font-size: 24px;
+    letter-spacing: 3px;
   }
 }

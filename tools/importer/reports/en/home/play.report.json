@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.usta.com/en/home/play.html",
+  "path": "en/home/play",
+  "timestamp": "2026-05-30T06:23:18.880Z",
+  "title": "Play",
+  "template": "play-page",
+  "blocks": [
+    "hero",
+    "promo-banner",
+    "cards",
+    "columns",
+    "columns",
+    "columns",
+    "columns"
+  ]
+}
