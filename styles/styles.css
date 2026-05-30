@@ -333,6 +333,11 @@ main .section[data-background="blue"] h6 {
   color: #fff;
 }
 
+/* section metadata - light blue */
+main .section[data-background="light-blue"] {
+  background-color: var(--color-brand-light-blue);
+}
+
 /* membership section styling */
 .section.section-title-container .default-content-wrapper {
   text-align: center;
@@ -358,7 +363,15 @@ main .section[data-background="blue"] h6 {
   text-decoration: none;
 }
 
-/* full-bleed sections (hero, promo-banner, columns variants) */
+/* column CTA buttons on dark-background sections */
+main .section[data-background="dark-green"] .columns-wrapper .columns .columns-col a,
+main .section[data-background="dark"] .columns-wrapper .columns .columns-col a {
+  background-color: var(--color-brand-primary);
+  color: var(--color-brand-primary-text);
+  border-color: var(--color-brand-primary);
+}
+
+/* full-bleed sections (hero, promo-banner, columns) */
 main > .section.hero-container {
   padding: 0;
 }
@@ -368,13 +381,12 @@ main > .section.promo-banner-container {
 }
 
 main > .section.columns-container {
-  padding: 24px;
+  padding: 0;
 }
 
-@media (width >= 900px) {
-  main > .section.columns-container {
-    padding: 32px;
-  }
+main > .section.columns-container > div {
+  max-width: none;
+  padding: 0;
 }
 
 /* accent-left section style - green left border */

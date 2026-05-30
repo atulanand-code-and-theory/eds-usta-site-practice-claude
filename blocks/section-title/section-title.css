@@ -37,12 +37,13 @@
 }
 
 .section-title .section-title-text h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   margin: 0;
   white-space: nowrap;
+  color: #000;
 }
 
 @media (width >= 900px) {
@@ -52,6 +53,7 @@
   }
 
   .section-title .section-title-text h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
   }
 }
