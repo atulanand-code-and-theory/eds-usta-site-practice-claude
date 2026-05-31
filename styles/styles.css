@@ -44,18 +44,10 @@ body.appear {
   display: block;
 }
 
-/* header placeholder */
-header {
-  height: var(--nav-height);
-  background-color: #f7f7f7;
-}
-
-header .header,
 footer .footer {
   visibility: hidden;
 }
 
-header .header[data-block-status="loaded"],
 footer .footer[data-block-status="loaded"] {
   visibility: visible;
 }
