@@ -62,19 +62,31 @@ function buildMegaMenu(ul) {
 
   const items = ul.querySelectorAll(':scope > li');
   items.forEach((li) => {
+    const img = li.querySelector(':scope > img');
     const link = li.querySelector(':scope > a');
     const subUl = li.querySelector(':scope > ul');
 
     const col = document.createElement('div');
     col.className = 'header-megamenu-item';
 
+    const headingRow = document.createElement('div');
+    headingRow.className = 'header-megamenu-heading-row';
+
+    if (img) {
+      const icon = img.cloneNode(true);
+      icon.className = 'header-megamenu-icon';
+      headingRow.append(icon);
+    }
+
     if (link) {
       const heading = document.createElement('a');
       heading.href = link.href;
       heading.className = 'header-megamenu-heading';
       heading.textContent = link.textContent;
-      col.append(heading);
+      headingRow.append(heading);
     }
+
+    col.append(headingRow);
 
     if (subUl) {
       const subLinks = document.createElement('ul');
@@ -197,19 +209,7 @@ export default async function decorate(block) {
   const navSection = sections[1];
   const actionsSection = sections[2];
 
-  // Logo
-  const logo = document.createElement('div');
-  logo.className = 'header-logo';
-  if (logoSection) {
-    const logoLink = logoSection.querySelector('a');
-    if (logoLink) {
-      logoLink.className = 'header-logo-link';
-      logoLink.setAttribute('aria-label', 'USTA Home');
-      logo.append(logoLink);
-    }
-  }
-
-  // Hamburger
+  // Hamburger (mobile)
   const hamburger = document.createElement('button');
   hamburger.className = 'header-hamburger';
   hamburger.setAttribute('aria-label', 'Open navigation menu');
@@ -228,53 +228,92 @@ export default async function decorate(block) {
     decorateNavItems(nav);
   }
 
-  // Actions (search + account + cart)
+  // Logo (centered)
+  const logo = document.createElement('div');
+  logo.className = 'header-logo';
+  if (logoSection) {
+    const logoLink = logoSection.querySelector('a');
+    if (logoLink) {
+      logoLink.className = 'header-logo-link';
+      logoLink.setAttribute('aria-label', 'USTA Home');
+      logo.append(logoLink);
+    }
+  }
+
+  // Actions (join + signin + search + account + cart)
   const actions = document.createElement('div');
   actions.className = 'header-actions';
 
-  const searchBtn = document.createElement('button');
-  searchBtn.className = 'header-search-btn';
-  searchBtn.setAttribute('aria-label', 'Open search');
-  searchBtn.innerHTML = '<span class="icon icon-search"></span>';
-  searchBtn.addEventListener('click', () => toggleSearch(block, undefined));
-
-  const accountBtn = document.createElement('a');
-  accountBtn.className = 'header-account-btn';
-  accountBtn.setAttribute('aria-label', 'My account');
-  accountBtn.href = '/en/home/myaccount.html';
-  accountBtn.innerHTML = '<span class="icon icon-user"></span>';
-
-  const cartBtn = document.createElement('a');
-  cartBtn.className = 'header-cart-btn';
-  cartBtn.setAttribute('aria-label', 'Shopping cart');
-  cartBtn.href = '/en/home/membership/shopping/shoppingcart.html';
-  cartBtn.innerHTML = '<span class="icon icon-cart"></span>';
+  let joinBtn = null;
+  let signinBtn = null;
 
   if (actionsSection) {
-    const links = actionsSection.querySelectorAll('a');
-    links.forEach((link) => {
-      const text = link.textContent.trim().toLowerCase();
-      if (text === 'account' || text === 'log in') {
-        accountBtn.href = link.href;
-      } else if (text === 'cart') {
-        cartBtn.href = link.href;
+    const paragraphs = actionsSection.querySelectorAll('p');
+    paragraphs.forEach((p) => {
+      const emLink = p.querySelector('em a');
+      const strongLink = p.querySelector('strong a');
+      const plainLink = p.querySelector('a');
+
+      if (emLink) {
+        joinBtn = document.createElement('a');
+        joinBtn.className = 'header-join-btn';
+        joinBtn.href = emLink.href;
+        joinBtn.textContent = emLink.textContent.toUpperCase();
+      } else if (strongLink) {
+        signinBtn = document.createElement('button');
+        signinBtn.className = 'header-signin-btn';
+        signinBtn.textContent = strongLink.textContent.toUpperCase();
+        signinBtn.addEventListener('click', () => { window.location.href = strongLink.href; });
+      } else if (plainLink) {
+        const text = plainLink.textContent.trim().toLowerCase();
+        if (text === 'search') {
+          const searchBtn = document.createElement('button');
+          searchBtn.className = 'header-search-btn';
+          searchBtn.setAttribute('aria-label', 'Open search');
+          searchBtn.innerHTML = '<span class="icon icon-search"></span>';
+          searchBtn.addEventListener('click', () => toggleSearch(block, undefined));
+          actions.append(searchBtn);
+        } else if (text === 'account') {
+          const accountBtn = document.createElement('a');
+          accountBtn.className = 'header-account-btn';
+          accountBtn.setAttribute('aria-label', 'My account');
+          accountBtn.href = plainLink.href;
+          accountBtn.innerHTML = '<span class="icon icon-user"></span>';
+          actions.append(accountBtn);
+        } else if (text === 'cart') {
+          const cartBtn = document.createElement('a');
+          cartBtn.className = 'header-cart-btn';
+          cartBtn.setAttribute('aria-label', 'Shopping cart');
+          cartBtn.href = plainLink.href;
+          cartBtn.innerHTML = '<span class="icon icon-cart"></span>';
+          actions.append(cartBtn);
+        }
       }
     });
   }
 
-  actions.append(searchBtn);
-  actions.append(accountBtn);
-  actions.append(cartBtn);
+  // Insert join/signin before icon buttons
+  const actionButtons = document.createElement('div');
+  actionButtons.className = 'header-action-buttons';
+  if (joinBtn) actionButtons.append(joinBtn);
+  if (signinBtn) actionButtons.append(signinBtn);
+
+  const actionIcons = document.createElement('div');
+  actionIcons.className = 'header-action-icons';
+  while (actions.firstChild) actionIcons.append(actions.firstChild);
+
+  actions.append(actionButtons);
+  actions.append(actionIcons);
 
   // Search overlay
   const searchOverlay = buildSearchOverlay();
 
-  // Assemble
+  // Assemble: hamburger | nav | logo (centered) | actions
   const headerInner = document.createElement('div');
   headerInner.className = 'header-inner';
-  headerInner.append(logo);
   headerInner.append(hamburger);
   headerInner.append(nav);
+  headerInner.append(logo);
   headerInner.append(actions);
 
   block.textContent = '';
@@ -284,18 +323,15 @@ export default async function decorate(block) {
   decorateIcons(block);
   addKeyboardNavigation(block);
 
-  // Close megamenu on outside click
   document.addEventListener('click', (e) => {
     if (!block.contains(e.target)) {
       closeAllMenus(nav);
     }
   });
 
-  // Close search overlay
   const closeBtn = searchOverlay.querySelector('.header-search-close');
   if (closeBtn) closeBtn.addEventListener('click', () => toggleSearch(block, false));
 
-  // Handle resize
   window.addEventListener('resize', () => {
     if (!isMobile() && nav.classList.contains('header-nav-open')) {
       toggleMobileNav(block, false);
