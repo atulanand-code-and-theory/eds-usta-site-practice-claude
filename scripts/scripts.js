@@ -54,8 +54,6 @@ function styleColumnsSections(main) {
   columnsSections.forEach((section, index) => {
     if (index === 1) {
       section.dataset.background = 'dark';
-    } else if (index === 2) {
-      section.dataset.background = 'dark-green';
     }
   });
 }

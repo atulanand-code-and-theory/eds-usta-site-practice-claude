@@ -27,8 +27,8 @@
 }
 
 .section-title .section-title-icon img {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -37,10 +37,10 @@
 }
 
 .section-title .section-title-text h2 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   margin: 0;
   white-space: nowrap;
   color: #000;
@@ -48,12 +48,12 @@
 
 @media (width >= 900px) {
   .section-title .section-title-icon img {
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
   }
 
   .section-title .section-title-text h2 {
-    font-size: 1.25rem;
-    letter-spacing: 2.5px;
+    font-size: 1.5rem;
+    letter-spacing: 3px;
   }
 }

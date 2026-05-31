@@ -3,8 +3,8 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 24px 36px;
-  padding: 16px 0;
+  gap: 32px 40px;
+  padding: 24px 0;
 }
 
 .logo-grid > div {
@@ -18,7 +18,7 @@
 }
 
 .logo-grid .logo-grid-item img {
-  max-height: 48px;
+  max-height: 72px;
   width: auto;
   transition: transform 0.2s ease;
 }
@@ -29,10 +29,13 @@
 
 @media (width >= 900px) {
   .logo-grid {
-    gap: 32px 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px 56px;
+    padding: 32px 0;
   }
 
   .logo-grid .logo-grid-item img {
-    max-height: 56px;
+    max-height: 90px;
   }
 }

@@ -48,7 +48,7 @@
   font-weight: 700;
   line-height: 1.05;
   color: #000;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .columns .columns-col h3 {
@@ -58,7 +58,7 @@
   font-weight: 700;
   line-height: 1.05;
   color: #000;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .columns .columns-col h4 {
@@ -67,7 +67,7 @@
   font-weight: 700;
   line-height: 1.1;
   color: #000;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .columns .columns-col p {

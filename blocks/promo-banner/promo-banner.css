@@ -1,134 +1,89 @@
 .promo-banner-wrapper {
-  padding: 32px 24px;
-  background-color: var(--color-background-gray);
+  padding: 0;
 }
 
 .promo-banner {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 32px 24px;
-  text-align: center;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 16px rgb(0 0 0 / 6%);
+  width: 100%;
 }
 
 .promo-banner > div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  gap: 24px;
+  padding: 40px 24px;
+}
+
+.promo-banner .promo-banner-content {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 
-.promo-banner > div > div:first-child picture {
-  display: flex;
-  justify-content: center;
-}
-
-.promo-banner p {
-  color: #000;
-  font-size: 16px;
-  font-family: var(--font-family-body);
-  line-height: 1.5;
-  margin: 6px 0;
-}
-
-.promo-banner > div > div:first-child img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.promo-banner > div > div:first-child p:first-child {
-  font-family: var(--font-family-button);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: #666;
+.promo-banner .promo-banner-content p {
   margin: 0;
-}
-
-.promo-banner > div > div:first-child p:last-child {
-  font-family: var(--font-family-heading);
-  font-size: 32px;
-  font-weight: 700;
-  text-transform: uppercase;
-  color: #000;
-  margin: 4px 0 0;
-  line-height: 1.05;
-}
-
-.promo-banner h4 {
   font-family: var(--font-family-heading);
   font-size: 36px;
   font-weight: 700;
-  text-transform: uppercase;
-  color: #000;
-  margin: 10px 0;
   line-height: 1.05;
+  color: #000;
+  text-transform: uppercase;
 }
 
-.promo-banner strong a,
-.promo-banner a.button {
-  display: inline-block;
-  padding: 12px 24px;
+.promo-banner .promo-banner-action {
+  display: flex;
+  align-items: center;
+}
+
+.promo-banner .promo-banner-action a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 32px;
   background-color: var(--color-brand-primary);
   color: var(--color-brand-primary-text);
   border-radius: 9999px;
   text-decoration: none;
   font-family: var(--font-family-button);
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
+  white-space: nowrap;
   transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-top: 8px;
 }
 
-.promo-banner strong a:hover,
-.promo-banner a.button:hover {
+.promo-banner .promo-banner-action a:hover {
   background-color: #b8e600;
   text-decoration: none;
   transform: scale(1.02);
 }
 
-.promo-banner > div > div:last-child p:last-child {
-  font-size: 12px;
-  color: #666;
-  margin-top: 16px;
-  line-height: 1.5;
-  max-width: 600px;
+/* Dark section variant */
+.section[data-background="dark"] .promo-banner .promo-banner-content p,
+.section[data-background="dark-green"] .promo-banner .promo-banner-content p {
+  color: #fff;
 }
 
-.promo-banner > div > div:last-child p:last-child a {
-  color: var(--color-link);
-  text-decoration: underline;
-  background: none;
-  padding: 0;
-  border-radius: 0;
-  font-size: inherit;
-  font-family: inherit;
-  text-transform: none;
-  letter-spacing: normal;
-  display: inline;
-  margin: 0;
-}
-
+/* Desktop: horizontal split */
 @media (width >= 900px) {
-  .promo-banner-wrapper {
-    padding: 40px 32px;
+  .promo-banner > div {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 48px;
+    gap: 48px;
   }
 
-  .promo-banner {
-    padding: 40px 32px;
-  }
-
-  .promo-banner > div > div:first-child p:last-child {
-    font-size: 42px;
-  }
-
-  .promo-banner h4 {
+  .promo-banner .promo-banner-content p {
     font-size: 48px;
+  }
+
+  .promo-banner .promo-banner-action {
+    flex-shrink: 0;
+  }
+
+  .promo-banner .promo-banner-action a {
+    font-size: 18px;
+    padding: 16px 40px;
   }
 }
