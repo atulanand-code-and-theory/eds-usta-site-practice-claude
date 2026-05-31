@@ -42,8 +42,9 @@ header {
 }
 
 .header .header-logo-link img {
-  height: 32px;
+  height: 28px;
   width: auto;
+  filter: brightness(0) invert(1);
 }
 
 /* Hamburger - mobile only */
@@ -121,7 +122,7 @@ body.header-nav-is-open {
   padding: 16px 24px;
   color: #fff;
   font-family: var(--font-family-heading);
-  font-size: 20px;
+  font-size: 18px;
   text-transform: uppercase;
   text-decoration: none;
   line-height: 1.2;
@@ -134,8 +135,8 @@ body.header-nav-is-open {
 
 /* Chevron */
 .header .header-nav-chevron {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   margin-left: 8px;
   transition: transform 0.2s ease;
   filter: brightness(0) invert(1);
@@ -145,11 +146,11 @@ body.header-nav-is-open {
   transform: rotate(180deg);
 }
 
-/* Mega-menu panel */
+/* Mega-menu panel - mobile */
 .header .header-megamenu {
   display: none;
   background-color: #111;
-  padding: 8px 0;
+  padding: 12px 0;
 }
 
 .header .header-nav-item[aria-expanded="true"] .header-megamenu {
@@ -160,38 +161,70 @@ body.header-nav-is-open {
   padding: 0 24px;
 }
 
-.header .header-megamenu-link {
-  padding: 0;
+.header .header-megamenu-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #1a1a1a;
 }
 
-.header .header-megamenu-link a {
+.header .header-megamenu-item:last-child {
+  border-bottom: none;
+}
+
+.header .header-megamenu-heading {
   display: block;
-  padding: 12px 16px;
-  color: #ccc;
+  padding: 10px 16px;
+  color: #fff;
   font-family: var(--font-family-body);
   font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.15s ease, color 0.15s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
 }
 
-.header .header-megamenu-link a:hover {
-  background-color: #222;
+.header .header-megamenu-heading:hover {
   color: var(--color-brand-primary);
   text-decoration: none;
 }
 
-/* Actions (search + login) */
+.header .header-megamenu-sublinks {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 16px;
+}
+
+.header .header-megamenu-sublinks li {
+  margin: 0;
+}
+
+.header .header-megamenu-sublink {
+  display: block;
+  padding: 8px 16px;
+  color: #999;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.header .header-megamenu-sublink:hover {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+}
+
+/* Actions (search + account + cart) */
 .header .header-actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   margin-left: auto;
   z-index: 10;
 }
 
-/* Search button */
-.header .header-search-btn {
+/* Action icon buttons (shared) */
+.header .header-search-btn,
+.header .header-account-btn,
+.header .header-cart-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,49 +236,22 @@ body.header-nav-is-open {
   cursor: pointer;
   border-radius: 50%;
   transition: background-color 0.15s ease;
+  text-decoration: none;
 }
 
-.header .header-search-btn:hover {
+.header .header-search-btn:hover,
+.header .header-account-btn:hover,
+.header .header-cart-btn:hover {
   background-color: #222;
+  text-decoration: none;
 }
 
-.header .header-search-btn .icon {
+.header .header-search-btn .icon,
+.header .header-account-btn .icon,
+.header .header-cart-btn .icon {
   width: 20px;
   height: 20px;
   filter: brightness(0) invert(1);
-}
-
-/* Login button */
-.header .header-login-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background-color: var(--color-brand-primary);
-  color: #000;
-  border-radius: 9999px;
-  font-family: var(--font-family-button);
-  font-size: 14px;
-  font-weight: 600;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-}
-
-.header .header-login-btn:hover {
-  background-color: #b8e600;
-  text-decoration: none;
-  transform: scale(1.02);
-}
-
-.header .header-login-btn .icon {
-  width: 18px;
-  height: 18px;
-}
-
-.header .header-login-text {
-  display: none;
 }
 
 /* Search overlay */
@@ -330,14 +336,10 @@ body.header-nav-is-open {
    TABLET (600px+)
    =============================================== */
 @media (width >= 600px) {
-  .header .header-login-text {
-    display: inline;
-  }
-
   .header .header-megamenu-columns {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 0;
+    gap: 0 16px;
   }
 }
 
@@ -352,11 +354,11 @@ body.header-nav-is-open {
   .header .header-inner {
     height: 72px;
     padding: 0 32px;
-    gap: 32px;
+    gap: 24px;
   }
 
   .header .header-logo-link img {
-    height: 36px;
+    height: 32px;
   }
 
   /* Hide hamburger on desktop */
@@ -391,11 +393,12 @@ body.header-nav-is-open {
   }
 
   .header .header-nav-link {
-    padding: 24px 14px;
-    font-size: 14px;
+    padding: 26px 12px;
+    font-size: 13px;
     white-space: nowrap;
     border-bottom: 3px solid transparent;
     transition: border-color 0.15s ease;
+    letter-spacing: 0.5px;
   }
 
   .header .header-nav-item:hover .header-nav-link,
@@ -404,21 +407,20 @@ body.header-nav-is-open {
   }
 
   .header .header-nav-chevron {
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
+    margin-left: 4px;
   }
 
-  /* Desktop mega-menu - dropdown */
+  /* Desktop mega-menu - full-width dropdown */
   .header .header-megamenu {
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    min-width: 280px;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    width: 100%;
     background-color: #fff;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 15%);
-    padding: 24px;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 12%);
+    padding: 32px 0;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease;
@@ -432,30 +434,58 @@ body.header-nav-is-open {
 
   .header .header-megamenu-columns {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  .header .header-megamenu-item {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .header .header-megamenu-heading {
+    display: block;
+    padding: 8px 0;
+    color: #000;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 8px;
+  }
+
+  .header .header-megamenu-heading:hover {
+    color: var(--color-brand-accent);
+  }
+
+  .header .header-megamenu-sublinks {
     padding: 0;
   }
 
-  .header .header-megamenu-link a {
-    color: #333;
-    font-size: 14px;
-    padding: 10px 12px;
+  .header .header-megamenu-sublink {
+    color: #555;
+    font-size: 13px;
+    padding: 6px 0;
   }
 
-  .header .header-megamenu-link a:hover {
-    background-color: #f5f5f5;
+  .header .header-megamenu-sublink:hover {
     color: #000;
   }
 
   /* Actions */
   .header .header-actions {
-    gap: 12px;
+    gap: 8px;
   }
 
-  .header .header-login-btn {
-    padding: 10px 20px;
-    font-size: 13px;
+  .header .header-search-btn .icon,
+  .header .header-account-btn .icon,
+  .header .header-cart-btn .icon {
+    width: 22px;
+    height: 22px;
   }
 }
 
@@ -464,15 +494,12 @@ body.header-nav-is-open {
    =============================================== */
 @media (width >= 1200px) {
   .header .header-nav-link {
-    padding: 24px 18px;
-    font-size: 15px;
+    padding: 26px 16px;
+    font-size: 14px;
   }
 
   .header .header-megamenu-columns {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .header .header-megamenu {
-    min-width: 380px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0 32px;
   }
 }

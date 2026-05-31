@@ -9,7 +9,7 @@ function buildSearchOverlay() {
   overlay.innerHTML = `
     <div class="header-search-overlay-inner">
       <form class="header-search-form" role="search" action="/en/home/search.html">
-        <input type="search" class="header-search-input" placeholder="Search USTA..." aria-label="Search USTA" name="q" autocomplete="off">
+        <input type="search" class="header-search-input" placeholder="Search USTA.com" aria-label="Search USTA" name="q" autocomplete="off">
         <button type="submit" class="header-search-submit" aria-label="Submit search">
           <span class="icon icon-search"></span>
         </button>
@@ -62,13 +62,34 @@ function buildMegaMenu(ul) {
 
   const items = ul.querySelectorAll(':scope > li');
   items.forEach((li) => {
-    const link = li.querySelector('a');
+    const link = li.querySelector(':scope > a');
+    const subUl = li.querySelector(':scope > ul');
+
+    const col = document.createElement('div');
+    col.className = 'header-megamenu-item';
+
     if (link) {
-      const col = document.createElement('div');
-      col.className = 'header-megamenu-link';
-      col.append(link.cloneNode(true));
-      columns.append(col);
+      const heading = document.createElement('a');
+      heading.href = link.href;
+      heading.className = 'header-megamenu-heading';
+      heading.textContent = link.textContent;
+      col.append(heading);
     }
+
+    if (subUl) {
+      const subLinks = document.createElement('ul');
+      subLinks.className = 'header-megamenu-sublinks';
+      subUl.querySelectorAll(':scope > li > a').forEach((a) => {
+        const subLi = document.createElement('li');
+        const subLink = a.cloneNode(true);
+        subLink.className = 'header-megamenu-sublink';
+        subLi.append(subLink);
+        subLinks.append(subLi);
+      });
+      col.append(subLinks);
+    }
+
+    columns.append(col);
   });
 
   panel.append(columns);
@@ -207,7 +228,7 @@ export default async function decorate(block) {
     decorateNavItems(nav);
   }
 
-  // Actions (search + login)
+  // Actions (search + account + cart)
   const actions = document.createElement('div');
   actions.className = 'header-actions';
 
@@ -217,20 +238,33 @@ export default async function decorate(block) {
   searchBtn.innerHTML = '<span class="icon icon-search"></span>';
   searchBtn.addEventListener('click', () => toggleSearch(block, undefined));
 
-  const loginBtn = document.createElement('a');
-  loginBtn.className = 'header-login-btn';
-  loginBtn.setAttribute('aria-label', 'Log in to your account');
+  const accountBtn = document.createElement('a');
+  accountBtn.className = 'header-account-btn';
+  accountBtn.setAttribute('aria-label', 'My account');
+  accountBtn.href = '/en/home/myaccount.html';
+  accountBtn.innerHTML = '<span class="icon icon-user"></span>';
+
+  const cartBtn = document.createElement('a');
+  cartBtn.className = 'header-cart-btn';
+  cartBtn.setAttribute('aria-label', 'Shopping cart');
+  cartBtn.href = '/en/home/membership/shopping/shoppingcart.html';
+  cartBtn.innerHTML = '<span class="icon icon-cart"></span>';
+
   if (actionsSection) {
-    const loginLink = actionsSection.querySelector('strong a') || actionsSection.querySelectorAll('a')[1];
-    if (loginLink) {
-      loginBtn.href = loginLink.href;
-      loginBtn.textContent = loginLink.textContent;
-    }
+    const links = actionsSection.querySelectorAll('a');
+    links.forEach((link) => {
+      const text = link.textContent.trim().toLowerCase();
+      if (text === 'account' || text === 'log in') {
+        accountBtn.href = link.href;
+      } else if (text === 'cart') {
+        cartBtn.href = link.href;
+      }
+    });
   }
-  loginBtn.innerHTML = `<span class="icon icon-user"></span><span class="header-login-text">${loginBtn.textContent || 'Log In'}</span>`;
 
   actions.append(searchBtn);
-  actions.append(loginBtn);
+  actions.append(accountBtn);
+  actions.append(cartBtn);
 
   // Search overlay
   const searchOverlay = buildSearchOverlay();
