@@ -44,17 +44,54 @@ async function loadFonts() {
 }
 
 /**
- * Applies background styling to columns sections based on content order.
- * Matches live site: section 3 (National Tennis Month) gets dark background,
- * section 4 (Local Park) gets dark-green background.
+ * Processes section-metadata blocks and applies key-value pairs to the parent section.
  * @param {Element} main The container element
  */
-function styleColumnsSections(main) {
-  const columnsSections = main.querySelectorAll('.section.columns-container');
-  columnsSections.forEach((section, index) => {
-    if (index === 1) {
-      section.dataset.background = 'dark';
-    }
+function decorateSectionMetadata(main) {
+  main.querySelectorAll('.section-metadata').forEach((meta) => {
+    const section = meta.closest('.section');
+    if (!section) return;
+    meta.querySelectorAll(':scope > div').forEach((row) => {
+      const cols = row.querySelectorAll(':scope > div');
+      if (cols.length < 2) return;
+      const key = cols[0].textContent.trim().toLowerCase();
+      const value = cols[1].textContent.trim();
+      if (key === 'style') {
+        value.split(',').forEach((v) => section.classList.add(v.trim()));
+      } else {
+        section.dataset[key] = value;
+      }
+    });
+    const wrapper = meta.parentElement;
+    if (wrapper && wrapper !== section) wrapper.remove();
+    else meta.remove();
+  });
+  // Apply section backgrounds from .plain.html source (AEM CLI strips section-metadata server-side)
+  const path = window.location.pathname.replace(/\/$/, '') || '/index';
+  fetch(`${path}.plain.html`).then((resp) => resp.ok && resp.text()).then((html) => {
+    if (!html) return;
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const srcSections = doc.querySelectorAll(':scope > body > div');
+    const domSections = [...main.querySelectorAll(':scope > .section')];
+    // Account for auto-blocked hero section prepended by buildHeroBlock
+    const offset = domSections.length - srcSections.length;
+    srcSections.forEach((srcSection, i) => {
+      const meta = srcSection.querySelector(':scope > .section-metadata');
+      if (!meta) return;
+      const target = domSections[i + offset];
+      if (!target) return;
+      meta.querySelectorAll(':scope > div').forEach((row) => {
+        const cols = row.querySelectorAll(':scope > div');
+        if (cols.length < 2) return;
+        const key = cols[0].textContent.trim().toLowerCase();
+        const value = cols[1].textContent.trim();
+        if (key === 'style') {
+          value.split(',').forEach((v) => target.classList.add(v.trim()));
+        } else {
+          target.dataset[key] = value;
+        }
+      });
+    });
   });
 }
 
@@ -119,8 +156,8 @@ export function decorateMain(main) {
   decorateIcons(main);
   buildAutoBlocks(main);
   decorateSections(main);
+  decorateSectionMetadata(main);
   decorateBlocks(main);
-  styleColumnsSections(main);
   decorateButtons(main);
 }
 
